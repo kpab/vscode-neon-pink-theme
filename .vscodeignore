@@ -9,6 +9,7 @@ node_modules
 .eslintrc.json
 tsconfig.json
 ICON_GUIDE.md
+convert-icon.js
 *.sh
 *.md.backup
 .DS_Store

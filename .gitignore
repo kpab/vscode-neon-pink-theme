@@ -1,0 +1,28 @@
+# Node modules
+node_modules/
+
+# Build output
+*.vsix
+
+# Development files
+convert-icon.js
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor directories
+.vscode-test/
+.idea/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
