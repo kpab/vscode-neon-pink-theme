@@ -1,4 +1,14 @@
 .git
 .gitignore
+.github
 .vscode
+.vscode-test
 *.vsix
+node_modules
+.editorconfig
+.eslintrc.json
+tsconfig.json
+ICON_GUIDE.md
+*.sh
+*.md.backup
+.DS_Store

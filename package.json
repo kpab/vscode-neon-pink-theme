@@ -1,26 +1,53 @@
 {
   "name": "neon-pink-dark",
   "displayName": "Neon Pink Dark",
-  "description": "Black x Neon Pink cyberpunk-style dark theme.",
-  "publisher": "kpab",
+  "description": "A cyberpunk-inspired dark theme with vibrant neon pink accents on pure black background. Perfect for developers who love futuristic aesthetics.",
   "version": "0.0.1",
+  "publisher": "kpab",
+  "author": {
+    "name": "kpab"
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.80.0"
   },
-  "categories": ["Themes"],
+  "categories": [
+    "Themes"
+  ],
   "keywords": [
     "theme",
     "dark theme",
+    "dark",
+    "color-theme",
     "pink",
     "neon",
+    "neon pink",
     "cyberpunk",
     "black",
-    "magenta"
+    "magenta",
+    "futuristic",
+    "synthwave",
+    "retro",
+    "night",
+    "aesthetic",
+    "colorful",
+    "vibrant",
+    "high contrast"
   ],
+  "galleryBanner": {
+    "color": "#000000",
+    "theme": "dark"
+  },
+  "icon": "icon.svg",
   "repository": {
     "type": "git",
     "url": "https://github.com/kpab/vscode-neon-pink-theme.git"
   },
+  "bugs": {
+    "url": "https://github.com/kpab/vscode-neon-pink-theme/issues"
+  },
+  "homepage": "https://github.com/kpab/vscode-neon-pink-theme#readme",
+  "qna": "marketplace",
   "contributes": {
     "themes": [
       {
