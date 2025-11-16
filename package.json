@@ -1,0 +1,20 @@
+{
+  "name": "neon-pink-dark",
+  "displayName": "Neon Pink Dark",
+  "description": "Black x Neon Pink cyberpunk-style dark theme.",
+  "publisher": "your-name",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": ["Themes"],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Neon Pink Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/neon-pink-dark-color-theme.json"
+      }
+    ]
+  }
+}
