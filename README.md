@@ -19,7 +19,7 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 - 🎚️ **Three Variants** - The original plus **Soft** and **Dimmed**, for OLED panels, bright rooms and long sessions. One install, [three themes](#-variants)
 - 🔧 **Customizable** - Easy to override colors through VS Code settings
 
-> **Every surface is themed as of v0.3.0** — workbench UI, syntax, diagnostics, the diff editor and Git decorations — and every text color meets WCAG AA against the background it actually renders on. **v0.4.0 adds the Soft and Dimmed variants**, which hold that same guarantee. What's still missing is screenshots and CI. See [Current Scope](#-current-scope) for what is covered, and the [Roadmap](#-roadmap) for what's next.
+> **Every surface is themed as of v0.3.0** — workbench UI, syntax, diagnostics, the diff editor and Git decorations — and every text color meets WCAG AA against the background it actually renders on. **v0.4.0 adds the Soft and Dimmed variants**, which hold that same guarantee. **v1.0.0 is the first release where nothing on that list is outstanding**: the theme is complete, measured, screenshotted, and every check that keeps it that way runs in CI. See [Current Scope](#-current-scope) for what is covered, and the [Roadmap](#-roadmap) for what's next.
 
 ## 📊 Current Scope
 
@@ -38,6 +38,8 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 | Language-specific scopes (HTML/JSX, CSS, Markdown, JSON, YAML, shell, regex) | ✅ Defined |
 | Semantic highlighting (`readonly`, `defaultLibrary`, `deprecated` and the standard token types) | ✅ Enabled |
 | Soft and Dimmed variants, generated from the base theme and measured like it | ✅ Defined |
+| Screenshots of every one of the above, taken in a real VS Code window | ✅ In the README |
+| CI — structure, staleness and contrast on every push and pull request; a `v*` tag publishes | ✅ Automated |
 
 **Accessibility note.** Every text color in every variant meets WCAG AA (4.5:1) against the surface it actually renders on — not only the background, but also the selection, the current-line highlight and both sides of a diff, which raise the floor luminance and cost roughly 1.3× of the ratio. The tightest case is a keyword inside a diff or a selection: 4.63:1 in Neon Pink Dark, 4.58:1 in Soft, 4.57:1 in Dimmed. On the plain background the same keyword is 6.4:1, comments are 6.8:1, functions 7.7:1, strings 10.3:1 and body text 18.0:1.
 

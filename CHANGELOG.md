@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.0] - 2026-07-29
+
+The two things the listing was missing. v0.3.0 finished the colors and v0.4.0 finished the variants; what was left was a Marketplace page asking people to install a theme they could not see, and a repository where nothing checked the theme before it shipped. Both are closed here, which is what makes this 1.0.0 rather than 0.5.0 — not new colors, but the point where the theme is complete, measured, visible, and kept that way without anyone remembering to.
+
 ### Added
 - Screenshots, in both READMEs. Eight of them: a hero shot, the full workbench with the terminal open, TypeScript, Python, Markdown, the diff editor, the Command Palette, and the three variants stacked on the same file. The listing had said "Screenshots coming soon" since the first release, which for a theme is the one gap that decides whether anyone installs it ([#13])
 - `images/`, excluded from the VSIX. Marketplace README images have to resolve to absolute URLs, so both READMEs reference them through `raw.githubusercontent.com` rather than relative paths — which also means the pictures are not shipped to every user who installs the extension ([#13])
@@ -195,7 +199,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Types: Light pink (#FF9AD6)
 - Numbers: Vivid pink (#FF55C3)
 
-[Unreleased]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.4.0...HEAD
+[Unreleased]: https://github.com/kpab/vscode-neon-pink-theme/compare/v1.0.0...HEAD
+[1.0.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.4.0...v1.0.0
 [0.4.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.1.0...v0.2.0
