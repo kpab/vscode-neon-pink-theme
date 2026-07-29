@@ -18,7 +18,7 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 - 🎯 **Layered Highlighting** - 55 TextMate rules plus semantic tokens: generic scopes that apply to every language, with dedicated rules for Markdown, HTML, CSS, JSON and YAML on top
 - 🔧 **Customizable** - Easy to override colors through VS Code settings
 
-> **This theme is still young.** The workbench UI and syntax highlighting are both themed end to end now, but editor diagnostics, the diff editor and Git decorations still fall back to VS Code's built-in dark theme, and three colors sit below WCAG AA. See [Current Scope](#-current-scope) for exactly what is and isn't covered, and the [Roadmap](#-roadmap) for what's next.
+> **Every surface is themed as of v0.3.0** — workbench UI, syntax, diagnostics, the diff editor and Git decorations — and every text color meets WCAG AA against the background it actually renders on. What's still missing is screenshots, the Soft and Dimmed variants and CI. See [Current Scope](#-current-scope) for what is covered, and the [Roadmap](#-roadmap) for what's next.
 
 ## 📊 Current Scope
 
@@ -31,11 +31,15 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 | Command Palette, IntelliSense, hovers, peek view, notifications, menus, breadcrumbs, scrollbars | ✅ Defined |
 | Terminal — all 16 ANSI slots, cursor, selection | ✅ Defined |
 | Search / word highlights, bracket pair colors, overview ruler and minimap markers | ✅ Defined |
-| Error / warning / diff / Git decoration colors | 🟡 Partial — notification and list icons are defined; editor diagnostics, the diff editor and Git decorations still fall back |
+| Error / warning / info diagnostics, Problems panel, marker navigation | ✅ Defined |
+| Diff editor, merge conflicts, the 3-way merge editor | ✅ Defined |
+| Git decorations — Explorer labels, gutter, minimap, overview ruler | ✅ Defined |
 | Language-specific scopes (HTML/JSX, CSS, Markdown, JSON, YAML, shell, regex) | ✅ Defined |
 | Semantic highlighting (`readonly`, `defaultLibrary`, `deprecated` and the standard token types) | ✅ Enabled |
 
-**Accessibility note.** The main syntax colors meet WCAG AA (4.5:1) against pure black — keywords 6.4:1, functions 7.7:1, strings 10.3:1, body text 18.0:1. Three elements currently fall short and are being fixed in [v0.3.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/4): comments (3.6:1), line numbers (3.9:1) and inactive tab labels (3.0:1). Every label on the list, input, dropdown and button surfaces also clears 4.5:1 — the lowest is the button label at 6.2:1 against the neon pink fill.
+**Accessibility note.** Every text color in the theme meets WCAG AA (4.5:1) against the surface it actually renders on — not only pure black, but also the selection background and the current-line highlight, which raise the floor luminance and cost roughly 1.3× of the ratio. The tightest case is a keyword inside a selection at 4.7:1; on pure black the same keyword is 6.4:1, comments are 6.8:1, functions 7.7:1, strings 10.3:1 and body text 18.0:1.
+
+`npm test` runs [`scripts/check-contrast.js`](scripts/check-contrast.js), which measures all 995 pairs — every syntax color against the twelve surfaces it can land on (editor, selection, current line, both sides of a diff at line and at word level, the three inline merge conflict regions and the 3-way merge editor), plus every workbench label against its own background — and fails if any drops below threshold. Colors carrying alpha are composited first, so the number is what reaches the eye rather than what the swatch suggests. Three decorations are exempt and say so in the output: whitespace markers, indent guides and the diff editor's diagonal fill are meant to stay faint.
 
 ## 📦 Installation
 
@@ -71,17 +75,20 @@ code .
 
 ## 🎨 Color Palette
 
-| Element | Color Code | Description |
-|---------|-----------|-------------|
-| 🎯 Primary Accent | `#FF2DBE` | Neon pink (keywords, cursor, badges) |
-| ⬛ Background | `#000000` | Pure black |
-| 📝 Foreground | `#FFE6FF` | Light pink for regular text |
-| 📜 Strings | `#FF8CF0` | Bright pink for string literals |
-| 🔢 Numbers | `#FF55C3` | Vivid pink for numeric values |
-| 💬 Comments | `#FF66CAA3` | Semi-transparent pink, italicized |
-| 🔧 Functions | `#FF5EC4` | Medium pink for function names |
-| 📦 Types | `#FF9AD6` | Light pink for type definitions |
-| ⚙️ Operators | `#FFBEE8` | Pale pink for punctuation |
+Every value below is opaque, so the code is what the color measures as — no alpha is composited away.
+
+| Element | Color Code | On black | Description |
+|---------|-----------|---------|-------------|
+| 🎯 Primary Accent | `#FF2DBE` | 6.4:1 | Neon pink (keywords, cursor, badges) |
+| ⬛ Background | `#000000` | — | Pure black |
+| 📝 Foreground | `#FFE6FF` | 18.0:1 | Light pink for regular text |
+| 📜 Strings | `#FF8CF0` | 10.3:1 | Bright pink for string literals |
+| 🔢 Numbers | `#FF55C3` | 7.3:1 | Vivid pink for numeric values |
+| 💬 Comments | `#C77AAE` | 6.8:1 | Muted pink, italicized |
+| 🔧 Functions | `#FF5EC4` | 7.7:1 | Medium pink for function names |
+| 📦 Types | `#FF9AD6` | 10.9:1 | Light pink for type definitions |
+| ⚙️ Operators | `#FFBEE8` | 13.8:1 | Pale pink for punctuation |
+| #️⃣ Line numbers | `#B3689B` | 5.4:1 | Dim pink, one step below comments |
 
 ## 🖼️ Screenshots
 
@@ -90,7 +97,7 @@ code .
 **Example code with Neon Pink Dark:**
 - Keywords glow in vibrant neon pink
 - Strings shimmer in bright pink tones
-- Comments fade with subtle transparency
+- Comments recede into a muted pink without dropping out of legibility
 - The pure black background makes colors pop
 
 ## 🌐 Language Support
@@ -152,8 +159,21 @@ For the best experience with this theme:
 2. **Consistent Color Language**: The same pink shade carries the same meaning in every language
 3. **Aesthetic First**: The cyberpunk look is the point — but not at the cost of reading your own code
 4. **Minimalist Approach**: A limited palette creates a cohesive, focused experience
+5. **Meaning Outranks the Palette**: Where a color carries information rather than style, it is allowed outside the pink ramp
 
-Where these conflict, readability wins. The semi-transparent comment color is a current example of getting that balance wrong: it looks right, but measures below WCAG AA. It's being corrected in v0.3.0.
+The fifth principle is a deliberate exception to the fourth, added in v0.3.0 along with the diff and Git colors. Added and removed lines cannot be the same hue, and neither can an error and a warning — at that point the color *is* the information, and a strictly pink palette would force you to read the text to learn what the color should already have told you. The exception is bounded to five hues, and each one was already in the theme through the bracket pair and ANSI palettes, so nothing new enters:
+
+| Meaning | Hue | Also used by |
+|---|---|---|
+| Error, deletion | Coral `#FF4A5F` | `invalid.illegal`, unmatched brackets, ANSI red |
+| Warning, conflict | Amber `#FFB05C` | ANSI yellow |
+| Information | Cyan `#4DDDE8` | Escape sequences, regex character classes, ANSI cyan |
+| Addition, untracked | Mint `#3FE0A0` / `#7DFFC6` | Regex literals, ANSI green, bracket level 6 |
+| Modification | Violet `#C77DFF` | Decorators and macros, bracket level 3 |
+
+Everything the editor says about your own code stays pink. Everything the editor says *about* the code — a diagnostic, a diff, a Git status — is allowed one of these five.
+
+Where these conflict, readability wins. Comments used to be a semi-transparent pink that looked right and measured 3.6:1; they are now a solid `#C77AAE` at 6.8:1. The rule the theme follows from v0.3.0 on: nothing ships below 4.5:1 on the surface it actually renders on, and `npm test` is what enforces it.
 
 ## 🗺️ Roadmap
 
@@ -182,7 +202,7 @@ Contributions are welcome! Here's how you can help:
 1. Fork this repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Make your changes
-4. Test with `F5` in VS Code
+4. Test with `F5` in VS Code, and run `npm test` if you touched any color
 5. Commit (`git commit -m 'Add amazing feature'`)
 6. Push to branch (`git push origin feature/amazing-feature`)
 7. Open a Pull Request

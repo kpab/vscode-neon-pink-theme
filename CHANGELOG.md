@@ -7,6 +7,34 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Diagnostic colors — `editorError`, `editorWarning`, `editorInfo` and `editorHint` foregrounds and backgrounds, the three Problems panel icons, and the marker navigation widget. Error, warning and info are coral `#FF4A5F`, amber `#FFB05C` and cyan `#4DDDE8`, so a squiggle says which kind it is before you read the message ([#10])
+- Diff editor colors — inserted and removed backgrounds at both line and word level, word-level borders, the gutter, the overview strip, the diagonal fill and the collapsed unchanged-region surface ([#10])
+- Merge conflict colors — current, incoming and common-ancestor headers and content, their overview ruler marks, and the 3-way merge editor's change and conflict-state borders ([#10])
+- Git decoration colors — added `#3FE0A0`, modified `#C77DFF`, deleted `#FF4A5F`, untracked `#7DFFC6`, conflicting `#FFB05C`, ignored `#A8628F`, plus the staged variants and submodules. All eight are mutually distinguishable and all clear 4.5:1 ([#10])
+- Git gutter and minimap gutter marks, and `minimap.warningHighlight` ([#10])
+- `inputValidation` warning and info surfaces, which previously only existed for errors ([#10])
+- `scripts/check-contrast.js`, run by `npm test`. It measures 299 pairs — every `tokenColors` and `semanticTokenColors` foreground against three editor surfaces, plus every workbench label against its own background — composites alpha before measuring, and exits non-zero on anything below threshold ([#11])
+
+### Changed
+- The error color is now coral `#FF4A5F` everywhere. `list.errorForeground`, `inputValidation.errorBorder` and `notificationsErrorIcon.foreground` were a second red, `#FF6B8A`, while `invalid.illegal`, unmatched brackets, ANSI red and the minimap error mark were already coral ([#10])
+- `notificationsInfoIcon.foreground` `#FF66D9` → cyan `#4DDDE8`, matching the new info squiggle. A pink info icon on a pink theme reads as decoration ([#10])
+- `editorOverviewRuler.addedForeground` `#7DFFC6CC` → `#3FE0A0CC`, so the ruler mark and the gutter mark for an added line are the same green. `#7DFFC6` now means untracked ([#10])
+- Comments are now a solid `#C77AAE` instead of `#FF66CAA3`. At 64% opacity the color that actually reached the eye was `#A34181`, which measures 3.6:1 on black and 2.9:1 inside a selection ([#11])
+- `editorLineNumber.foreground` `#FF66CCAA` → `#B3689B`, 3.9:1 → 5.4:1. Also solid, for the same reason ([#11])
+- `tab.inactiveForeground` `#82456A` → `#A8628F`, 3.0:1 → 4.8:1. It now matches the inactive title bar, activity bar and panel titles, which were already at that value ([#11])
+- `editor.selectionBackground` `#660033` → `#4D0026`. The selection raises the floor luminance for everything sitting on it, and at `#660033` the darkest token — the `#FF2DBE` keyword — measured 4.0:1 inside a selection. It is now 4.7:1 ([#11])
+
+### Notes on the palette exception ([#10])
+- Five hues are now allowed outside the pink ramp — coral, amber, cyan, mint and violet — and only where the color carries information rather than style: a diagnostic, a diff, a Git status. Every one of them was already in the theme through the bracket pair and ANSI palettes, so no new color enters. The rule is written up in the README's Design Philosophy section
+- The word-level diff highlight is `1F` alpha rather than `26`. Stacked on the `14` line highlight, `26` put the `#FF2DBE` keyword — the darkest token in the theme — at 4.3:1 on an inserted word. At `1F` it is 4.6:1. `mergeEditor.change.*` uses the same two values for the same reason
+- `editorError.border`, `editorWarning.border` and `editorInfo.border` are left unset. A border draws a box around every squiggle, and the squiggle already says everything the box would. The diff editor's word-level borders *are* set, because there the border is the only thing marking where a changed word starts and ends
+
+### Notes on the contrast work ([#11])
+- The whole palette is now free of alpha in any foreground position. The three colors that failed were the three that carried alpha, and the README color table had been listing the declared value, not the composited one
+- `editor.selectionForeground` was considered and rejected. It would have fixed the selection cases in one key, but it overrides every token color inside the selection, so selecting a block would have flattened it to a single color
+- Whitespace markers and indent guides are exempt from the check, and the script prints why. A guide that meets 3:1 stops being a guide
+
 ## [0.2.0] - 2026-07-29
 
 ### Added
@@ -117,3 +145,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#7]: https://github.com/kpab/vscode-neon-pink-theme/issues/7
 [#8]: https://github.com/kpab/vscode-neon-pink-theme/issues/8
 [#9]: https://github.com/kpab/vscode-neon-pink-theme/issues/9
+[#10]: https://github.com/kpab/vscode-neon-pink-theme/issues/10
+[#11]: https://github.com/kpab/vscode-neon-pink-theme/issues/11

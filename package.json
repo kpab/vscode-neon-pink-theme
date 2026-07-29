@@ -57,6 +57,9 @@
       }
     ]
   },
+  "scripts": {
+    "test": "node scripts/check-contrast.js"
+  },
   "devDependencies": {
     "sharp": "^0.34.5"
   }
