@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-07-29
+
 ### Added
 - Diagnostic colors — `editorError`, `editorWarning`, `editorInfo` and `editorHint` foregrounds and backgrounds, the three Problems panel icons, and the marker navigation widget. Error, warning and info are coral `#FF4A5F`, amber `#FFB05C` and cyan `#4DDDE8`, so a squiggle says which kind it is before you read the message ([#10])
 - Diff editor colors — inserted and removed backgrounds at both line and word level, word-level borders, the gutter, the overview strip, the diagonal fill and the collapsed unchanged-region surface ([#10])
@@ -130,7 +132,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Types: Light pink (#FF9AD6)
 - Numbers: Vivid pink (#FF55C3)
 
-[Unreleased]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.0.2...v0.1.0
 [0.0.2]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.0.1...v0.0.2
