@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.1.0] - 2026-07-29
+
 ### Added
 - List and tree colors — active/inactive selection, hover, focus, focus outline, match highlight, error/warning foreground and indent guides. The Explorer no longer shows Dark+'s blue `#04395E` selection ([#3])
 - Input colors — `input.*`, `inputOption.active*`, `inputValidation.error*`, `dropdown.*` and `checkbox.*` ([#3])
@@ -63,7 +65,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Types: Light pink (#FF9AD6)
 - Numbers: Vivid pink (#FF55C3)
 
-[Unreleased]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.0.2...HEAD
+[Unreleased]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.0.2...v0.1.0
 [0.0.2]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.0.1...v0.0.2
 [0.0.1]: https://github.com/kpab/vscode-neon-pink-theme/releases/tag/v0.0.1
 
