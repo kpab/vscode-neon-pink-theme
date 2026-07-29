@@ -28,9 +28,9 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 | Sidebar, status bar, activity bar, tabs, title bar, panel | ✅ Defined |
 | Generic syntax scopes (keyword, string, variable, number, function, type, comment, punctuation) | ✅ Defined |
 | Lists, trees, inputs, buttons, dropdowns, checkboxes, focus rings, text links | ✅ Defined |
-| Command Palette, IntelliSense, notifications, menus | ⬜ Falls back |
+| Command Palette, IntelliSense, hovers, peek view, notifications, menus, breadcrumbs, scrollbars | ✅ Defined |
 | Terminal ANSI colors | ⬜ Falls back |
-| Error / warning / diff / Git decoration colors | ⬜ Falls back |
+| Error / warning / diff / Git decoration colors | 🟡 Partial — notification and list icons are defined; editor diagnostics, the diff editor and Git decorations still fall back |
 | Search highlights, bracket pair colors | ⬜ Falls back |
 | Language-specific scopes (HTML, CSS, Markdown, JSON) | ⬜ Not defined |
 | Semantic highlighting | ⬜ Not enabled |

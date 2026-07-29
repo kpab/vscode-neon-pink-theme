@@ -13,6 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Button colors — primary, secondary and their hover states ([#3])
 - Text link colors — `textLink.foreground` / `.activeForeground` ([#3])
 - `badge.foreground`, which was inheriting Dark+'s white and rendering at 3.3:1 on the neon pink badge background ([#3])
+- Overlay widget colors — Command Palette, IntelliSense, hover widget, peek view, menus, menu bar and notifications, all on a raised `#14000C` surface with a `#4D002E` border ([#4])
+- Editor chrome colors — tab strip and tab borders, title bar (active and inactive), status bar borders and states, activity bar, side bar section headers, panel titles, scrollbar slider, indent guides, rulers, whitespace, gutter and breadcrumbs ([#4])
+- `statusBar.debuggingBackground` `#7A0049` and `noFolderBackground` `#4D002E`, replacing Dark+'s orange and purple. Both stay in the palette while reading as distinctly different from the normal status bar ([#4])
 
 ### Changed
 - `focusBorder` is now solid `#FF2DBE` instead of `#FF2DBE66`. At 40% alpha over pure black the focus ring was barely visible ([#3])
@@ -58,3 +61,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#1]: https://github.com/kpab/vscode-neon-pink-theme/issues/1
 [#2]: https://github.com/kpab/vscode-neon-pink-theme/issues/2
 [#3]: https://github.com/kpab/vscode-neon-pink-theme/issues/3
+[#4]: https://github.com/kpab/vscode-neon-pink-theme/issues/4
