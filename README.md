@@ -18,7 +18,7 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 - 🎯 **Language-Agnostic Highlighting** - One set of generic scopes (keywords, strings, numbers, functions, types, comments) applies uniformly to every language
 - 🔧 **Customizable** - Easy to override colors through VS Code settings
 
-> **This theme is early (`0.0.x`).** Color coverage is intentionally minimal right now, and surfaces the theme doesn't define fall back to VS Code's built-in dark theme. See [Current Scope](#-current-scope) for exactly what is and isn't covered, and the [Roadmap](#-roadmap) for what's next.
+> **This theme is still young.** The workbench UI is now themed end to end, but syntax highlighting is still a small set of generic rules, and a few surfaces continue to fall back to VS Code's built-in dark theme. See [Current Scope](#-current-scope) for exactly what is and isn't covered, and the [Roadmap](#-roadmap) for what's next.
 
 ## 📊 Current Scope
 
@@ -27,15 +27,15 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 | Editor background, foreground, cursor, selection, line numbers | ✅ Defined |
 | Sidebar, status bar, activity bar, tabs, title bar, panel | ✅ Defined |
 | Generic syntax scopes (keyword, string, variable, number, function, type, comment, punctuation) | ✅ Defined |
-| Lists, inputs, buttons, dropdowns, focus rings | ⬜ Falls back to the built-in dark theme |
-| Command Palette, IntelliSense, notifications, menus | ⬜ Falls back |
-| Terminal ANSI colors | ⬜ Falls back |
-| Error / warning / diff / Git decoration colors | ⬜ Falls back |
-| Search highlights, bracket pair colors | ⬜ Falls back |
+| Lists, trees, inputs, buttons, dropdowns, checkboxes, focus rings, text links | ✅ Defined |
+| Command Palette, IntelliSense, hovers, peek view, notifications, menus, breadcrumbs, scrollbars | ✅ Defined |
+| Terminal — all 16 ANSI slots, cursor, selection | ✅ Defined |
+| Search / word highlights, bracket pair colors, overview ruler and minimap markers | ✅ Defined |
+| Error / warning / diff / Git decoration colors | 🟡 Partial — notification and list icons are defined; editor diagnostics, the diff editor and Git decorations still fall back |
 | Language-specific scopes (HTML, CSS, Markdown, JSON) | ⬜ Not defined |
 | Semantic highlighting | ⬜ Not enabled |
 
-**Accessibility note.** The main syntax colors meet WCAG AA (4.5:1) against pure black — keywords 6.4:1, functions 7.7:1, strings 10.3:1, body text 18.0:1. Three elements currently fall short and are being fixed in [v0.3.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/4): comments (3.6:1), line numbers (3.9:1) and inactive tab labels (3.0:1).
+**Accessibility note.** The main syntax colors meet WCAG AA (4.5:1) against pure black — keywords 6.4:1, functions 7.7:1, strings 10.3:1, body text 18.0:1. Three elements currently fall short and are being fixed in [v0.3.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/4): comments (3.6:1), line numbers (3.9:1) and inactive tab labels (3.0:1). Every label on the list, input, dropdown and button surfaces also clears 4.5:1 — the lowest is the button label at 6.2:1 against the neon pink fill.
 
 ## 📦 Installation
 

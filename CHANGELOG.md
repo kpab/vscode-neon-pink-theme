@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- List and tree colors — active/inactive selection, hover, focus, focus outline, match highlight, error/warning foreground and indent guides. The Explorer no longer shows Dark+'s blue `#04395E` selection ([#3])
+- Input colors — `input.*`, `inputOption.active*`, `inputValidation.error*`, `dropdown.*` and `checkbox.*` ([#3])
+- Button colors — primary, secondary and their hover states ([#3])
+- Text link colors — `textLink.foreground` / `.activeForeground` ([#3])
+- `badge.foreground`, which was inheriting Dark+'s white and rendering at 3.3:1 on the neon pink badge background ([#3])
+- Overlay widget colors — Command Palette, IntelliSense, hover widget, peek view, menus, menu bar and notifications, all on a raised `#14000C` surface with a `#4D002E` border ([#4])
+- Editor chrome colors — tab strip and tab borders, title bar (active and inactive), status bar borders and states, activity bar, side bar section headers, panel titles, scrollbar slider, indent guides, rulers, whitespace, gutter and breadcrumbs ([#4])
+- `statusBar.debuggingBackground` `#7A0049` and `noFolderBackground` `#4D002E`, replacing Dark+'s orange and purple. Both stay in the palette while reading as distinctly different from the normal status bar ([#4])
+- All 16 terminal ANSI slots plus `terminal.background`/`.foreground`/`.border`, cursor and selection ([#5])
+- Search, selection and word highlights, including a solid `#B3006B` current-match fill so `Cmd+F` hits stay visible inside a selection ([#6])
+- Six bracket pair colors, `unexpectedBracket.foreground` and `editorBracketMatch.*`, replacing Dark+'s gold/purple/blue ([#6])
+- Overview ruler and minimap markers, including the minimap slider ([#6])
+
+### Changed
+- `focusBorder` is now solid `#FF2DBE` instead of `#FF2DBE66`. At 40% alpha over pure black the focus ring was barely visible ([#3])
+
+### Notes on the ANSI palette ([#5])
+- ANSI slots keep their hue identity rather than being mapped onto pink, because `git diff`, test runners and linters depend on red/green/yellow being readable as red/green/yellow. Hues are pulled toward the theme's high-saturation, magenta-leaning character instead
+- Pure `#FF2DBE` is reserved for `ansiMagenta`; `ansiBrightRed` is a coral `#FF7A70` rather than a pink red so that it does not collide with `ansiBrightMagenta`
+- 15 of the 16 slots clear 4.5:1 against `terminal.background`. `ansiBlack` is the exception at 1.05:1 — a black slot that met 4.5:1 would no longer be black, and CLI tools use it as a background and as dim text. `ansiBrightBlack`, which is what tools actually use for dim *foreground* text, sits at 4.8:1
+
 ## [0.0.2] - 2026-07-29
 
 ### Fixed
@@ -47,3 +69,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [#1]: https://github.com/kpab/vscode-neon-pink-theme/issues/1
 [#2]: https://github.com/kpab/vscode-neon-pink-theme/issues/2
+[#3]: https://github.com/kpab/vscode-neon-pink-theme/issues/3
+[#4]: https://github.com/kpab/vscode-neon-pink-theme/issues/4
+[#5]: https://github.com/kpab/vscode-neon-pink-theme/issues/5
+[#6]: https://github.com/kpab/vscode-neon-pink-theme/issues/6
