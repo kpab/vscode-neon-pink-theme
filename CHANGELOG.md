@@ -15,13 +15,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `invalid.illegal` on coral `#FF4A5F`. Genuine syntax errors previously carried no color signal at all ([#7])
 - `constant.character.escape` on cyan `#4DDDE8` and `string.regexp` on mint `#7DFFC6` ([#7])
 - Decorators on violet `#C77DFF`, covering `@decorator` and Rust's `#[derive]` ([#7])
-
 - Language-specific scopes for HTML, CSS, Markdown, JSON, YAML, shell and regex — 32 rules, taking `tokenColors` from 23 to 55. The theme previously had none at all ([#8])
 - HTML tag names `#FF2DBE`, attribute names `#FF5EC4` and attribute values `#FF8CF0` — three distinguishable colors where there was one ([#8])
 - CSS selectors by kind — element `#FF5AD0`, class `#FF5EC4`, id `#FF2DBE`, pseudo-class and pseudo-element `#FF7ADB` — plus property names `#FF9AD6` against values `#FF55C3`, and custom properties on `#FF7ADB` ([#8])
 - Markdown headings stepping down the pink ramp h1–h6, plus bold, italic, strikethrough, blockquotes, inline code, fenced blocks, links, tables and thematic breaks. A Markdown file was previously a wall of `#FFE6FF` ([#8])
 - JSON, YAML and TOML keys on `#FF9AD6`, distinct from `#FF8CF0` values ([#8])
 - Regex character classes on the escape-sequence cyan `#4DDDE8` and anchors on `#FF2DBE` ([#8])
+- `"semanticHighlighting": true` and `semanticTokenColors` for the standard token types. TypeScript, Rust, C#, Java and Python can now color a local, a parameter and a property differently even where the grammar cannot tell them apart ([#9])
+- `variable.readonly` and `property.readonly` on the constant color `#FF55C3`, which makes `const` and `let` distinguishable at a glance ([#9])
+- `*.deprecated` renders with strikethrough. It previously had no signal at all ([#9])
+- `*.defaultLibrary` renders italic, separating stdlib symbols from user code ([#9])
+
+### Changed
+- Rust macros (`entity.name.function.macro`) moved from the function color to the decorator violet `#C77DFF`. A macro generates code rather than calling it, and the semantic `macro` type is violet — leaving them apart would have made `println!` change color on file open ([#9])
 
 ### Notes on the accent colors ([#7])
 - Three scopes take a hue outside the pink ramp. Escape sequences, regex literals and syntax errors are all cases where "this is not ordinary code" is the message, and a ramp position cannot carry that. The hues are the ones already used by the bracket pair and ANSI palettes, so no new color enters the theme
@@ -30,6 +36,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Notes on the Markdown rules ([#8])
 - Heading levels need descendant selectors (`heading.2 entity.name.section`). The grammar puts `heading.N.markdown` outside `entity.name.section.markdown`, so a flat selector loses to the inner scope
 - List bullets are scoped to `punctuation.definition.list`, not `markup.list`. `markup.list` wraps the entire block, so colouring it turns every list item body neon pink
+
+### Notes on semantic highlighting ([#9])
+- Every semantic color matches what the same symbol resolves to in the TextMate layer, so nothing changes color when the language server answers a few hundred milliseconds after a file opens
+- `defaultLibrary` is italic rather than a separate color for that reason. The TextMate layer colors `support.*` by kind rather than by origin, so a distinct stdlib color could not both separate stdlib and avoid the flicker
+- `declaration`, `definition`, `static`, `async`, `modification` and `documentation` are left to inherit. Stacking three or four styles on one identifier reads as noise rather than information
 
 ## [0.1.0] - 2026-07-29
 
@@ -102,3 +113,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#6]: https://github.com/kpab/vscode-neon-pink-theme/issues/6
 [#7]: https://github.com/kpab/vscode-neon-pink-theme/issues/7
 [#8]: https://github.com/kpab/vscode-neon-pink-theme/issues/8
+[#9]: https://github.com/kpab/vscode-neon-pink-theme/issues/9

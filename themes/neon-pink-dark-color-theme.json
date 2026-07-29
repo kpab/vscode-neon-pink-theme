@@ -1,6 +1,7 @@
 {
   "name": "Neon Pink Dark",
   "type": "dark",
+  "semanticHighlighting": true,
   "colors": {
     "editor.background": "#000000",
     "editor.foreground": "#FFE6FF",
@@ -405,13 +406,16 @@
       }
     },
     {
-      "name": "Decorator — @decorator, #[attribute]",
+      "name": "Decorator and macro — @decorator, #[attribute], println!",
       "scope": [
         "entity.name.function.decorator",
         "entity.name.decorator",
         "meta.decorator",
         "punctuation.decorator",
         "meta.attribute.rust",
+        "entity.name.function.macro",
+        "entity.name.macro",
+        "support.function.macro",
         "entity.name.function.preprocessor",
         "meta.preprocessor"
       ],
@@ -722,5 +726,38 @@
         "foreground": "#FF8CF0"
       }
     }
-  ]
+  ],
+  "semanticTokenColors": {
+    "namespace": "#FF9AD6",
+    "type": "#FF9AD6",
+    "class": "#FF9AD6",
+    "enum": "#FF9AD6",
+    "interface": "#FF9AD6",
+    "struct": "#FF9AD6",
+    "typeParameter": {
+      "foreground": "#FF9AD6",
+      "italic": true
+    },
+    "function": "#FF5EC4",
+    "method": "#FF5EC4",
+    "event": "#FF5EC4",
+    "macro": "#C77DFF",
+    "decorator": "#C77DFF",
+    "label": "#FF9AD6",
+    "variable": "#FFD6FF",
+    "parameter": {
+      "foreground": "#FFC2F0",
+      "italic": true
+    },
+    "property": "#FF89D6",
+    "enumMember": "#FF55C3",
+    "variable.readonly": "#FF55C3",
+    "property.readonly": "#FF55C3",
+    "*.defaultLibrary": {
+      "italic": true
+    },
+    "*.deprecated": {
+      "strikethrough": true
+    }
+  }
 }

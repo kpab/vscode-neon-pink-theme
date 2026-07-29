@@ -15,10 +15,10 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 - 🎨 **Pure Black Background** - `#000000` gives the neon accents the highest possible contrast
 - 💖 **Neon Pink Accents** - `#FF2DBE` as the primary color across the editor and workbench
 - 🌃 **Cyberpunk / Future Neon** - Inspired by neon signs in nighttime cityscapes
-- 🎯 **Language-Agnostic Highlighting** - One set of generic scopes (keywords, strings, numbers, functions, types, comments) applies uniformly to every language
+- 🎯 **Layered Highlighting** - 55 TextMate rules plus semantic tokens: generic scopes that apply to every language, with dedicated rules for Markdown, HTML, CSS, JSON and YAML on top
 - 🔧 **Customizable** - Easy to override colors through VS Code settings
 
-> **This theme is still young.** The workbench UI is now themed end to end, but syntax highlighting is still a small set of generic rules, and a few surfaces continue to fall back to VS Code's built-in dark theme. See [Current Scope](#-current-scope) for exactly what is and isn't covered, and the [Roadmap](#-roadmap) for what's next.
+> **This theme is still young.** The workbench UI and syntax highlighting are both themed end to end now, but editor diagnostics, the diff editor and Git decorations still fall back to VS Code's built-in dark theme, and three colors sit below WCAG AA. See [Current Scope](#-current-scope) for exactly what is and isn't covered, and the [Roadmap](#-roadmap) for what's next.
 
 ## 📊 Current Scope
 
@@ -33,7 +33,7 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 | Search / word highlights, bracket pair colors, overview ruler and minimap markers | ✅ Defined |
 | Error / warning / diff / Git decoration colors | 🟡 Partial — notification and list icons are defined; editor diagnostics, the diff editor and Git decorations still fall back |
 | Language-specific scopes (HTML/JSX, CSS, Markdown, JSON, YAML, shell, regex) | ✅ Defined |
-| Semantic highlighting | ⬜ Not enabled |
+| Semantic highlighting (`readonly`, `defaultLibrary`, `deprecated` and the standard token types) | ✅ Enabled |
 
 **Accessibility note.** The main syntax colors meet WCAG AA (4.5:1) against pure black — keywords 6.4:1, functions 7.7:1, strings 10.3:1, body text 18.0:1. Three elements currently fall short and are being fixed in [v0.3.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/4): comments (3.6:1), line numbers (3.9:1) and inactive tab labels (3.0:1). Every label on the list, input, dropdown and button surfaces also clears 4.5:1 — the lowest is the button label at 6.2:1 against the neon pink fill.
 
@@ -106,6 +106,8 @@ On top of that sit **language-specific rules** for the languages that markup and
 - **Shell / SQL / regex** — interpolation, character classes and anchors are colored separately
 
 Coverage was checked by tokenizing sample files with the same TextMate grammars VS Code ships. What still falls back to the plain foreground is prose (HTML text nodes, Markdown paragraphs) and identifiers the grammars leave unscoped, such as SQL table and column names.
+
+**Semantic highlighting** is enabled on top of both layers, so languages with a language server — TypeScript, Rust, C#, Java, Python — also get type-aware coloring: `const` reads differently from `let`, stdlib symbols are italic, and deprecated APIs are struck through. Semantic colors deliberately match their TextMate counterparts, so nothing changes color when the server finishes analysing the file.
 
 ## ⚙️ Customization
 
