@@ -16,9 +16,10 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 - 💖 **Neon Pink Accents** - `#FF2DBE` as the primary color across the editor and workbench
 - 🌃 **Cyberpunk / Future Neon** - Inspired by neon signs in nighttime cityscapes
 - 🎯 **Layered Highlighting** - 55 TextMate rules plus semantic tokens: generic scopes that apply to every language, with dedicated rules for Markdown, HTML, CSS, JSON and YAML on top
+- 🎚️ **Three Variants** - The original plus **Soft** and **Dimmed**, for OLED panels, bright rooms and long sessions. One install, [three themes](#-variants)
 - 🔧 **Customizable** - Easy to override colors through VS Code settings
 
-> **Every surface is themed as of v0.3.0** — workbench UI, syntax, diagnostics, the diff editor and Git decorations — and every text color meets WCAG AA against the background it actually renders on. What's still missing is screenshots, the Soft and Dimmed variants and CI. See [Current Scope](#-current-scope) for what is covered, and the [Roadmap](#-roadmap) for what's next.
+> **Every surface is themed as of v0.3.0** — workbench UI, syntax, diagnostics, the diff editor and Git decorations — and every text color meets WCAG AA against the background it actually renders on. **v0.4.0 adds the Soft and Dimmed variants**, which hold that same guarantee. What's still missing is screenshots and CI. See [Current Scope](#-current-scope) for what is covered, and the [Roadmap](#-roadmap) for what's next.
 
 ## 📊 Current Scope
 
@@ -36,10 +37,35 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 | Git decorations — Explorer labels, gutter, minimap, overview ruler | ✅ Defined |
 | Language-specific scopes (HTML/JSX, CSS, Markdown, JSON, YAML, shell, regex) | ✅ Defined |
 | Semantic highlighting (`readonly`, `defaultLibrary`, `deprecated` and the standard token types) | ✅ Enabled |
+| Soft and Dimmed variants, generated from the base theme and measured like it | ✅ Defined |
 
-**Accessibility note.** Every text color in the theme meets WCAG AA (4.5:1) against the surface it actually renders on — not only pure black, but also the selection background and the current-line highlight, which raise the floor luminance and cost roughly 1.3× of the ratio. The tightest case is a keyword inside a selection at 4.7:1; on pure black the same keyword is 6.4:1, comments are 6.8:1, functions 7.7:1, strings 10.3:1 and body text 18.0:1.
+**Accessibility note.** Every text color in every variant meets WCAG AA (4.5:1) against the surface it actually renders on — not only the background, but also the selection, the current-line highlight and both sides of a diff, which raise the floor luminance and cost roughly 1.3× of the ratio. The tightest case is a keyword inside a diff or a selection: 4.63:1 in Neon Pink Dark, 4.58:1 in Soft, 4.57:1 in Dimmed. On the plain background the same keyword is 6.4:1, comments are 6.8:1, functions 7.7:1, strings 10.3:1 and body text 18.0:1.
 
-`npm test` runs [`scripts/check-contrast.js`](scripts/check-contrast.js), which measures all 995 pairs — every syntax color against the twelve surfaces it can land on (editor, selection, current line, both sides of a diff at line and at word level, the three inline merge conflict regions and the 3-way merge editor), plus every workbench label against its own background — and fails if any drops below threshold. Colors carrying alpha are composited first, so the number is what reaches the eye rather than what the swatch suggests. Three decorations are exempt and say so in the output: whitespace markers, indent guides and the diff editor's diagonal fill are meant to stay faint.
+`npm test` runs [`scripts/check-contrast.js`](scripts/check-contrast.js), which measures 995 pairs per theme — every syntax color against the twelve surfaces it can land on (editor, selection, current line, both sides of a diff at line and at word level, the three inline merge conflict regions and the 3-way merge editor), plus every workbench label against its own background — for all three variants, 2985 in total, and fails if any drops below threshold. Colors carrying alpha are composited first, so the number is what reaches the eye rather than what the swatch suggests. Three decorations are exempt and say so in the output: whitespace markers, indent guides and the diff editor's diagonal fill are meant to stay faint.
+
+## 🎚️ Variants
+
+The extension contributes three themes. They are the same theme — same hues, same meanings, same rules — at three intensities, so switching is a comfort decision rather than a new theme to learn.
+
+| Theme | Background | Saturation | Use it when |
+|---|---|---|---|
+| **Neon Pink Dark** | `#000000` | 100% | You want maximum contrast and the full neon look |
+| **Neon Pink Dark Soft** | `#12000A` | 80% | Your panel is OLED, or the pure-black edge feels harsh |
+| **Neon Pink Dimmed** | `#0D0008` | 60% | Long sessions, bright rooms, or you find full saturation tiring |
+
+Pick one with `Ctrl+K Ctrl+T` / `Cmd+K Cmd+T` — all three appear in the list after a single install.
+
+**Why lift the background at all?** High-saturation magenta on `#000000` smears visibly while scrolling on OLED panels, because the pixels are switching fully off and back on. A background a few points above black keeps them lit and the smearing stops. It also stops the background from disappearing entirely in bright ambient light, where pure black reads as a hole rather than a surface.
+
+**How the variants are built.** `themes/neon-pink-dark-color-theme.json` is the only hand-maintained theme. The other two are generated from it by [`scripts/build-themes.js`](scripts/build-themes.js) and committed, so the extension stays dependency-free at install time while three copies of the palette cannot drift apart — `npm test` regenerates them and fails if what is on disk differs. The transform is three steps:
+
+1. **Desaturation at constant luminance.** Each color is pulled toward the gray of its own lightness, then scaled back to the relative luminance it started with. Contrast depends on luminance alone, so this step cannot cost a single ratio.
+2. **Background lift.** Black becomes the variant's base tint, and the rest of the dark surface ramp is lifted by a decreasing amount. This is the step that costs contrast.
+3. **Foreground gain.** Every foreground gains back exactly the luminance the lifted background took — about 3%, invisible to the eye but enough to keep a token at the ratio it had on black.
+
+What that leaves is the surfaces lifted *more* than the editor background, a selection or a changed word in a diff, which end up a few hundredths below where they started. That is why every variant is measured in full rather than assumed correct: 4.63:1 at the tightest in the base theme, 4.58:1 in Soft, 4.57:1 in Dimmed.
+
+> A **light** variant is deliberately not here. Neon pink on white is a different design problem — the accents have to become darker rather than calmer, and the five-hue palette exception would need re-deriving from scratch — so it belongs in its own milestone rather than bundled with a desaturation pass.
 
 ## 📦 Installation
 
@@ -49,7 +75,7 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 2. Search for **"Neon Pink Dark"**
 3. Click **Install**
 4. Select theme (`Ctrl+K Ctrl+T` or `Cmd+K Cmd+T`)
-5. Choose **"Neon Pink Dark"**
+5. Choose **"Neon Pink Dark"**, **"Neon Pink Dark Soft"** or **"Neon Pink Dimmed"**
 
 ### From Command Line
 
@@ -89,6 +115,8 @@ Every value below is opaque, so the code is what the color measures as — no al
 | 📦 Types | `#FF9AD6` | 10.9:1 | Light pink for type definitions |
 | ⚙️ Operators | `#FFBEE8` | 13.8:1 | Pale pink for punctuation |
 | #️⃣ Line numbers | `#B3689B` | 5.4:1 | Dim pink, one step below comments |
+
+The variants keep the hue and the ratio and only give up saturation — the accent is `#F646C0` in Soft and `#E25DB9` in Dimmed, comments `#C082AC` and `#B487A6`. Run `node scripts/check-contrast.js --verbose` for the full measured table of any of them.
 
 ## 🖼️ Screenshots
 
@@ -137,6 +165,8 @@ Override specific colors in your `settings.json`:
 }
 ```
 
+The theme name in brackets is per-variant, so `[Neon Pink Dark]` does not affect Soft or Dimmed. To cover all three, list them: `"[Neon Pink Dark][Neon Pink Dark Soft][Neon Pink Dimmed]"`.
+
 ### Recommended Settings
 
 For the best experience with this theme:
@@ -155,7 +185,7 @@ For the best experience with this theme:
 
 **Neon Pink Dark** is designed with these principles:
 
-1. **Maximum Contrast**: Pure black (`#000000`) gives foreground colors the highest possible contrast ratio
+1. **Maximum Contrast**: Pure black (`#000000`) gives foreground colors the highest possible contrast ratio — and where a variant trades some of it away for comfort, the floor still holds
 2. **Consistent Color Language**: The same pink shade carries the same meaning in every language
 3. **Aesthetic First**: The cyberpunk look is the point — but not at the cost of reading your own code
 4. **Minimalist Approach**: A limited palette creates a cohesive, focused experience
@@ -187,6 +217,8 @@ Tracked as [GitHub milestones](https://github.com/kpab/vscode-neon-pink-theme/mi
 | [v0.4.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/5) | Soft and Dimmed variants for OLED and long sessions |
 | [v1.0.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/6) | Screenshots, CI and release automation |
 
+A light variant is not on this list yet. See the note at the end of [Variants](#-variants) for why it is a separate design problem rather than a fourth intensity.
+
 ## 🤝 Contributing
 
 Contributions are welcome! Here's how you can help:
@@ -201,11 +233,12 @@ Contributions are welcome! Here's how you can help:
 
 1. Fork this repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes
-4. Test with `F5` in VS Code, and run `npm test` if you touched any color
-5. Commit (`git commit -m 'Add amazing feature'`)
-6. Push to branch (`git push origin feature/amazing-feature`)
-7. Open a Pull Request
+3. Make your changes — edit only `themes/neon-pink-dark-color-theme.json`; the Soft and Dimmed files are generated
+4. Run `npm run build` to regenerate the variants, then `npm test` to measure all three. `npm test` also fails if a generated file is stale, so a color change that skips the rebuild cannot be committed unnoticed
+5. Test with `F5` in VS Code
+6. Commit (`git commit -m 'Add amazing feature'`)
+7. Push to branch (`git push origin feature/amazing-feature`)
+8. Open a Pull Request
 
 ## 📝 Changelog
 
