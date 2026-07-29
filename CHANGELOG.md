@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-07-29
+
+### Added
+- **Neon Pink Dark Soft** — background `#12000A`, saturation 80%. For OLED panels, where fully saturated magenta on `#000000` smears while scrolling because the pixels switch fully off and back on, and for anyone who finds the pure-black edge harsh ([#12])
+- **Neon Pink Dimmed** — background `#0D0008`, saturation 60%. For long sessions, bright rooms, and eyes that full saturation tires out ([#12])
+- `scripts/build-themes.js`, run by `npm run build`. It generates both variants from the base theme and commits the result, so the extension stays dependency-free at install time and three copies of an 837-line palette cannot drift apart ([#12])
+- A staleness check. `npm test` now runs `build-themes.js --check` first and fails if a generated file differs from what the base theme would produce, so a color change that skips the rebuild cannot be committed unnoticed ([#12])
+
+### Changed
+- `scripts/check-contrast.js` measures every theme in `contributes.themes` rather than only the base one, reading the list from `package.json`. 995 pairs per theme, 2985 in total, all passing. The tightest case is the accent inside a diff or a selection: 4.63:1 in the base theme, 4.58:1 in Soft, 4.57:1 in Dimmed ([#12])
+
+### Notes on the generation approach ([#12])
+- The base theme is the only hand-maintained one. Making all three generated from a separate palette definition was the alternative, and it would have meant rewriting a theme that is already correct and already measured — the variants are derived *from* the shipped theme instead, so the shipped theme stays the thing that gets reviewed
+- Desaturation is done at constant relative luminance: each color is pulled toward the gray of its own HSL lightness, then scaled back to the luminance it started with. Contrast is a function of luminance alone, so this step provably cannot cost a ratio. A plain HSL desaturation does — it pulls the accent's red channel down from 255 and takes about 7% of its luminance with it
+- The first version of the transform did exactly that, and the contrast check caught it: the `#FF2DBE` accent landed at 4.22:1 inside a selection in Soft and 4.28:1 in Dimmed, against a 4.5:1 floor. The base theme has 4.74:1 there, so there was never enough headroom to spend
+- The background lift fades out at HSL lightness 0.35. Below it a color is a surface and gets the variant's base tint; above it a color is a foreground and instead gains back the luminance the lifted editor background took away — about 3%, which is invisible but keeps a token at the ratio it had on black. The base theme's surface ramp tops out at L 0.24 and its darkest foreground sits at L 0.55, so the boundary has room on both sides
+- What the derivation cannot fully hold is the surfaces that lift *more* than the editor background — a selection, a changed word in a diff. Those end up a few hundredths lower, which is why every variant is measured in full rather than trusted because it was generated
+- Fully transparent slots (`minimap.background`, `tab.activeBorder`) are passed through untouched. Lifting a color nobody can see only makes the generated diff noisier
+
+### Notes on what is not here ([#12])
+- **No light variant.** Neon pink on white is a different design problem, not a fourth intensity: the accents have to become darker rather than calmer, and the five-hue palette exception from v0.3.0 would need re-deriving against a light floor. Bundling it with a desaturation pass would have meant shipping it under-considered
+- The variants are registered as three separate entries in `contributes.themes`, so a `workbench.colorCustomizations` block scoped to `[Neon Pink Dark]` does not apply to the other two. The README says so, with the syntax for covering all three
+
 ## [0.3.0] - 2026-07-29
 
 ### Added
@@ -132,7 +155,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Types: Light pink (#FF9AD6)
 - Numbers: Vivid pink (#FF55C3)
 
-[Unreleased]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.0.2...v0.1.0
@@ -150,3 +174,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#9]: https://github.com/kpab/vscode-neon-pink-theme/issues/9
 [#10]: https://github.com/kpab/vscode-neon-pink-theme/issues/10
 [#11]: https://github.com/kpab/vscode-neon-pink-theme/issues/11
+[#12]: https://github.com/kpab/vscode-neon-pink-theme/issues/12

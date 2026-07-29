@@ -2,7 +2,7 @@
   "name": "neon-pink-dark",
   "displayName": "Neon Pink Dark",
   "description": "A cyberpunk-inspired dark theme with vibrant neon pink accents on pure black background. Perfect for developers who love futuristic aesthetics.",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "publisher": "kpab",
   "author": {
     "name": "kpab"
@@ -54,11 +54,22 @@
         "label": "Neon Pink Dark",
         "uiTheme": "vs-dark",
         "path": "./themes/neon-pink-dark-color-theme.json"
+      },
+      {
+        "label": "Neon Pink Dark Soft",
+        "uiTheme": "vs-dark",
+        "path": "./themes/neon-pink-dark-soft-color-theme.json"
+      },
+      {
+        "label": "Neon Pink Dimmed",
+        "uiTheme": "vs-dark",
+        "path": "./themes/neon-pink-dimmed-color-theme.json"
       }
     ]
   },
   "scripts": {
-    "test": "node scripts/check-contrast.js"
+    "build": "node scripts/build-themes.js",
+    "test": "node scripts/build-themes.js --check && node scripts/check-contrast.js"
   },
   "devDependencies": {
     "sharp": "^0.34.5"

@@ -2,7 +2,12 @@
 'use strict';
 
 /**
- * WCAG 2.1 contrast check for themes/neon-pink-dark-color-theme.json.
+ * WCAG 2.1 contrast check for every theme in package.json's contributes.themes.
+ *
+ * The Soft and Dimmed variants are generated (scripts/build-themes.js) rather
+ * than hand-written, but "generated" is not "safe": desaturating a foreground
+ * and lifting the background it sits on both move the ratio, so each variant is
+ * measured in full exactly like the base theme.
  *
  * Two things make a theme's contrast easy to get wrong by eye:
  *
@@ -27,7 +32,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const THEME_PATH = path.join(__dirname, '..', 'themes', 'neon-pink-dark-color-theme.json');
+const ROOT = path.join(__dirname, '..');
 
 /** WCAG 2.1 AA for body-size text. */
 const AA_TEXT = 4.5;
@@ -316,9 +321,17 @@ function syntaxForegrounds(theme) {
 // run
 // ---------------------------------------------------------------------------
 
-function main() {
-  const verbose = process.argv.includes('--verbose');
-  const theme = JSON.parse(fs.readFileSync(THEME_PATH, 'utf8'));
+/** Every theme the extension contributes, in the order package.json lists them. */
+function contributedThemes() {
+  const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
+  return pkg.contributes.themes.map((t) => ({
+    label: t.label,
+    path: path.join(ROOT, t.path),
+  }));
+}
+
+/** Measure one theme and return its results, unfiltered. */
+function measure(theme) {
   const colors = theme.colors;
   const results = [];
 
@@ -358,31 +371,49 @@ function main() {
     }
   }
 
-  const failures = results.filter((r) => r.missing || r.ratio < r.min);
-  const shown = verbose ? results : failures;
+  return results;
+}
 
-  if (shown.length) {
-    const width = Math.max(...shown.map((r) => r.label.length));
-    for (const r of shown) {
-      const mark = r.missing ? '?' : r.ratio >= r.min ? 'ok' : 'FAIL';
-      const ratio = r.missing ? 'undefined' : `${r.ratio.toFixed(2)}:1`;
-      console.log(
-        `${mark.padEnd(4)} ${r.label.padEnd(width)}  ${ratio.padStart(9)}  ` +
-          `(min ${r.min.toFixed(1)}, on ${r.on}${r.effective ? `, effective ${r.effective}` : ''})`
-      );
+function main() {
+  const verbose = process.argv.includes('--verbose');
+  let total = 0;
+  let totalFailures = 0;
+
+  for (const entry of contributedThemes()) {
+    const theme = JSON.parse(fs.readFileSync(entry.path, 'utf8'));
+    const results = measure(theme);
+    const failures = results.filter((r) => r.missing || r.ratio < r.min);
+    const shown = verbose ? results : failures;
+
+    console.log(`— ${entry.label} —`);
+
+    if (shown.length) {
+      const width = Math.max(...shown.map((r) => r.label.length));
+      for (const r of shown) {
+        const mark = r.missing ? '?' : r.ratio >= r.min ? 'ok' : 'FAIL';
+        const ratio = r.missing ? 'undefined' : `${r.ratio.toFixed(2)}:1`;
+        console.log(
+          `${mark.padEnd(4)} ${r.label.padEnd(width)}  ${ratio.padStart(9)}  ` +
+            `(min ${r.min.toFixed(1)}, on ${r.on}${r.effective ? `, effective ${r.effective}` : ''})`
+        );
+      }
+      console.log('');
     }
-    console.log('');
+
+    console.log(`${results.length} checks, ${failures.length} below threshold\n`);
+    total += results.length;
+    totalFailures += failures.length;
   }
 
   console.log(
-    `${results.length} checks, ${failures.length} below threshold ` +
+    `${total} checks across all themes, ${totalFailures} below threshold ` +
       `(AA text ${AA_TEXT}:1, AA non-text ${AA_NON_TEXT}:1)`
   );
   for (const [key, reason] of Object.entries(EXEMPT)) {
     console.log(`exempt: ${key} — ${reason}`);
   }
 
-  process.exit(failures.length ? 1 : 0);
+  process.exit(totalFailures ? 1 : 0);
 }
 
 main();
