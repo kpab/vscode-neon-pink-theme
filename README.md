@@ -18,7 +18,7 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 - 🎯 **Language-Agnostic Highlighting** - One set of generic scopes (keywords, strings, numbers, functions, types, comments) applies uniformly to every language
 - 🔧 **Customizable** - Easy to override colors through VS Code settings
 
-> **This theme is early (`0.0.x`).** Color coverage is intentionally minimal right now, and surfaces the theme doesn't define fall back to VS Code's built-in dark theme. See [Current Scope](#-current-scope) for exactly what is and isn't covered, and the [Roadmap](#-roadmap) for what's next.
+> **This theme is still young.** The workbench UI is now themed end to end, but syntax highlighting is still a small set of generic rules, and a few surfaces continue to fall back to VS Code's built-in dark theme. See [Current Scope](#-current-scope) for exactly what is and isn't covered, and the [Roadmap](#-roadmap) for what's next.
 
 ## 📊 Current Scope
 
@@ -30,8 +30,8 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 | Lists, trees, inputs, buttons, dropdowns, checkboxes, focus rings, text links | ✅ Defined |
 | Command Palette, IntelliSense, hovers, peek view, notifications, menus, breadcrumbs, scrollbars | ✅ Defined |
 | Terminal — all 16 ANSI slots, cursor, selection | ✅ Defined |
+| Search / word highlights, bracket pair colors, overview ruler and minimap markers | ✅ Defined |
 | Error / warning / diff / Git decoration colors | 🟡 Partial — notification and list icons are defined; editor diagnostics, the diff editor and Git decorations still fall back |
-| Search highlights, bracket pair colors | ⬜ Falls back |
 | Language-specific scopes (HTML, CSS, Markdown, JSON) | ⬜ Not defined |
 | Semantic highlighting | ⬜ Not enabled |
 

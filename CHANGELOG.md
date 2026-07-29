@@ -17,6 +17,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Editor chrome colors — tab strip and tab borders, title bar (active and inactive), status bar borders and states, activity bar, side bar section headers, panel titles, scrollbar slider, indent guides, rulers, whitespace, gutter and breadcrumbs ([#4])
 - `statusBar.debuggingBackground` `#7A0049` and `noFolderBackground` `#4D002E`, replacing Dark+'s orange and purple. Both stay in the palette while reading as distinctly different from the normal status bar ([#4])
 - All 16 terminal ANSI slots plus `terminal.background`/`.foreground`/`.border`, cursor and selection ([#5])
+- Search, selection and word highlights, including a solid `#B3006B` current-match fill so `Cmd+F` hits stay visible inside a selection ([#6])
+- Six bracket pair colors, `unexpectedBracket.foreground` and `editorBracketMatch.*`, replacing Dark+'s gold/purple/blue ([#6])
+- Overview ruler and minimap markers, including the minimap slider ([#6])
 
 ### Changed
 - `focusBorder` is now solid `#FF2DBE` instead of `#FF2DBE66`. At 40% alpha over pure black the focus ring was barely visible ([#3])
@@ -69,3 +72,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#3]: https://github.com/kpab/vscode-neon-pink-theme/issues/3
 [#4]: https://github.com/kpab/vscode-neon-pink-theme/issues/4
 [#5]: https://github.com/kpab/vscode-neon-pink-theme/issues/5
+[#6]: https://github.com/kpab/vscode-neon-pink-theme/issues/6
