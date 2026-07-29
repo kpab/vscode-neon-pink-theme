@@ -6,12 +6,13 @@
 .vscode-test
 *.vsix
 node_modules
+package-lock.json
 .editorconfig
 .eslintrc.json
 tsconfig.json
-ICON_GUIDE.md
-convert-icon.js
 scripts
+images
+CONTRIBUTING.md
 *.sh
 *.md.backup
 .DS_Store

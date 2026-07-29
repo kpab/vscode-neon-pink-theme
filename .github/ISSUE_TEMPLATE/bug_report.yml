@@ -1,0 +1,70 @@
+name: Bug report
+description: Something renders wrong, is unreadable, or is not colored at all
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If an element looks like it belongs to the default Dark+ theme — blue
+        selections, blue focus rings — it is most likely a color key this theme
+        does not set yet. That is a bug worth reporting; the details below are
+        what make it findable.
+
+  - type: dropdown
+    id: variant
+    attributes:
+      label: Which variant
+      options:
+        - Neon Pink Dark
+        - Neon Pink Dark Soft
+        - Neon Pink Dimmed
+        - All three
+    validations:
+      required: true
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What is wrong
+      description: Which element, and what does it look like now.
+      placeholder: The breadcrumb bar under the tabs stays Dark+ gray, so it does not match the tab strip above it.
+    validations:
+      required: true
+
+  - type: textarea
+    id: where
+    attributes:
+      label: Where to see it
+      description: |
+        The shortest path to it — which view, which file type, which state.
+        A screenshot is worth more than a description here.
+      placeholder: |
+        1. Open any file so the breadcrumbs appear
+        2. The bar between the tab strip and the editor
+    validations:
+      required: true
+
+  - type: input
+    id: color-key
+    attributes:
+      label: Color key (if you know it)
+      description: |
+        `Developer: Generate Color Theme From Current Settings` in the Command
+        Palette shows every key with its current value, which is the fastest way
+        to find the name of the one that is wrong.
+      placeholder: breadcrumb.background
+
+  - type: input
+    id: versions
+    attributes:
+      label: VS Code and theme version
+      placeholder: VS Code 1.95.0, Neon Pink Dark 1.0.0
+    validations:
+      required: true
+
+  - type: textarea
+    id: customizations
+    attributes:
+      label: Any workbench.colorCustomizations in your settings
+      description: These override the theme, so they can explain a color the theme does not produce.
+      render: json

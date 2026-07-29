@@ -1,0 +1,45 @@
+name: Validate
+
+# A color theme has no build step and no runtime, so nothing fails loudly when
+# it is wrong: a malformed value, a key VS Code no longer registers, or a
+# variant that was not rebuilt after the base theme changed all produce a theme
+# that loads and quietly falls back to Dark+. These are the checks that turn
+# that into a failure.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Themes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - run: npm ci
+
+      # validate-themes.js, then build-themes.js --check, then
+      # check-contrast.js: is it a well-formed theme, was it rebuilt after the
+      # base theme changed, and is every pair still above WCAG AA.
+      - name: Validate
+        run: npm test
+
+      # Manifest errors — a missing icon, a bad engines range, a theme path
+      # that does not resolve — only surface at package time.
+      - name: Package
+        run: npx --yes @vscode/vsce package --out /tmp/validate.vsix
+
+      - name: Upload VSIX
+        uses: actions/upload-artifact@v4
+        with:
+          name: vsix
+          path: /tmp/validate.vsix
+          retention-days: 14

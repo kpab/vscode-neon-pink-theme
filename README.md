@@ -229,16 +229,21 @@ Contributions are welcome! Here's how you can help:
 - 📖 Improve documentation
 - 🌍 Add translations
 
-### Development Workflow
+[CONTRIBUTING.md](CONTRIBUTING.md) has the full workflow. The short version:
 
-1. Fork this repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Make your changes — edit only `themes/neon-pink-dark-color-theme.json`; the Soft and Dimmed files are generated
-4. Run `npm run build` to regenerate the variants, then `npm test` to measure all three. `npm test` also fails if a generated file is stale, so a color change that skips the rebuild cannot be committed unnoticed
-5. Test with `F5` in VS Code
-6. Commit (`git commit -m 'Add amazing feature'`)
-7. Push to branch (`git push origin feature/amazing-feature`)
-8. Open a Pull Request
+```bash
+npm install
+npm run build   # regenerate the Soft and Dimmed variants
+npm test        # structure, staleness and contrast — the same checks CI runs
+```
+
+1. Fork, then branch from `main`
+2. Edit only `themes/neon-pink-dark-color-theme.json` — the Soft and Dimmed files are generated from it, and `npm test` fails if they are stale
+3. Test with `F5` in VS Code
+4. Add a `## [Unreleased]` entry to the CHANGELOG
+5. Open a Pull Request
+
+New colors have to clear WCAG AA on every surface they render on and stay on the pink ramp — see [Design Philosophy](#-design-philosophy) for the exception. `npm test` measures it.
 
 ## 📝 Changelog
 

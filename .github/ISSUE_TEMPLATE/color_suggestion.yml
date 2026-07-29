@@ -1,0 +1,58 @@
+name: Color suggestion
+description: Propose changing a color, or coloring something that is currently unset
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Two things decide whether a color change lands, and knowing them up
+        front saves a round trip:
+
+        - **Contrast.** Every foreground has to clear WCAG AA — 4.5:1 for text,
+          3:1 for non-text — against the editor background, the current-line
+          highlight, a selection, and a diff background. `npm test` measures all
+          of it. The theme currently has very little headroom: its darkest
+          token sits at 4.6:1 inside a selection.
+        - **The palette.** Everything is on the pink ramp except five hues —
+          coral, amber, cyan, mint and violet — which are allowed only where the
+          color carries information rather than style: a diagnostic, a diff, a
+          Git status. See Design Philosophy in the README.
+
+  - type: input
+    id: color-key
+    attributes:
+      label: Color key
+      description: The `contributes.themes` key, or the TextMate scope for a syntax color.
+      placeholder: editorBracketHighlight.foreground3
+    validations:
+      required: true
+
+  - type: input
+    id: current
+    attributes:
+      label: Current value
+      placeholder: '#FF66D9'
+
+  - type: input
+    id: proposed
+    attributes:
+      label: Proposed value
+      placeholder: '#FF8CF0'
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: |
+        What is hard to read, hard to tell apart, or reads as the wrong kind of
+        thing at the current value.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: The proposed color is on the pink ramp, or is one of the five information hues used for information
+        - label: I have run `npm test`, or I am asking for the change to be measured

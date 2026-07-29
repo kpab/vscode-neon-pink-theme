@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: How the colors are decided
+    url: https://github.com/kpab/vscode-neon-pink-theme#-design-philosophy
+    about: The palette rules and the contrast floor every color has to clear.
+  - name: Contributing
+    url: https://github.com/kpab/vscode-neon-pink-theme/blob/main/CONTRIBUTING.md
+    about: Changing a color, adding a scope, and what has to pass before a PR lands.

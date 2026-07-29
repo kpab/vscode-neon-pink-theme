@@ -187,15 +187,21 @@ code .
 
 ## 🤝 コントリビューション
 
-Issue や Pull Request を歓迎します！
+Issue や Pull Request を歓迎します！詳しい手順は [CONTRIBUTING.md](CONTRIBUTING.md)（英語）にあります。要点だけ書くと:
 
-1. このリポジトリをフォーク
-2. Feature ブランチを作成（`git checkout -b feature/amazing-feature`）
-3. 色を編集するのは `themes/neon-pink-dark-color-theme.json` だけ。Soft / Dimmed は生成物です
-4. `npm run build` でバリアントを再生成し、`npm test` で 3 つとも測定。生成物が古いままなら `npm test` が落ちるので、再生成し忘れたままコミットされることはありません
-5. 変更をコミット（`git commit -m 'Add amazing feature'`）
-6. ブランチにプッシュ（`git push origin feature/amazing-feature`）
-7. Pull Request を作成
+```bash
+npm install
+npm run build   # Soft / Dimmed バリアントを再生成
+npm test        # 構造・生成物の鮮度・コントラスト。CI と同じチェック
+```
+
+1. このリポジトリをフォークし、`main` からブランチを作成
+2. 色を編集するのは `themes/neon-pink-dark-color-theme.json` だけ。Soft / Dimmed はここから生成されるので、古いままなら `npm test` が落ちます
+3. VS Code で `F5` を押して確認
+4. CHANGELOG の `## [Unreleased]` に変更を追記
+5. Pull Request を作成
+
+新しい色は、実際にレンダリングされる面すべてで WCAG AA を満たし、ピンクのランプ上にある必要があります（例外は[デザイン方針](#-デザイン方針)を参照）。`npm test` がそれを測定します。
 
 ## 📄 ライセンス
 
