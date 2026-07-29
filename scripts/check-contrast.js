@@ -43,6 +43,8 @@ const EXEMPT = {
   'editorWhitespace.foreground':
     'a deliberately faint guide — at 3:1 the dots and arrows compete with the code they sit inside',
   'tree.indentGuidesStroke': 'same — an indent guide that meets 3:1 reads as a rule, not a hint',
+  'diffEditor.diagonalFill':
+    'the hatch over lines that do not exist on one side — a fill loud enough for 3:1 reads as content',
 };
 
 // ---------------------------------------------------------------------------
@@ -194,6 +196,40 @@ const UI_CHECKS = [
   ['terminal.ansiWhite', ['terminal.background']],
   ['terminal.ansiBrightWhite', ['terminal.background']],
 
+  ['editorError.foreground', ['editor.background'], AA_NON_TEXT],
+  ['editorWarning.foreground', ['editor.background'], AA_NON_TEXT],
+  ['editorInfo.foreground', ['editor.background'], AA_NON_TEXT],
+  ['editorHint.foreground', ['editor.background'], AA_NON_TEXT],
+  ['problemsErrorIcon.foreground', ['panel.background'], AA_NON_TEXT],
+  ['problemsWarningIcon.foreground', ['panel.background'], AA_NON_TEXT],
+  ['problemsInfoIcon.foreground', ['panel.background'], AA_NON_TEXT],
+  ['input.foreground', ['inputValidation.errorBackground']],
+  ['input.foreground', ['inputValidation.warningBackground']],
+  ['input.foreground', ['inputValidation.infoBackground']],
+
+  ['gitDecoration.addedResourceForeground', ['sideBar.background']],
+  ['gitDecoration.modifiedResourceForeground', ['sideBar.background']],
+  ['gitDecoration.deletedResourceForeground', ['sideBar.background']],
+  ['gitDecoration.untrackedResourceForeground', ['sideBar.background']],
+  ['gitDecoration.ignoredResourceForeground', ['sideBar.background']],
+  ['gitDecoration.conflictingResourceForeground', ['sideBar.background']],
+  ['gitDecoration.stageModifiedResourceForeground', ['sideBar.background']],
+  ['gitDecoration.stageDeletedResourceForeground', ['sideBar.background']],
+  ['gitDecoration.submoduleResourceForeground', ['sideBar.background']],
+  ['editorGutter.addedBackground', ['editorGutter.background'], AA_NON_TEXT],
+  ['editorGutter.modifiedBackground', ['editorGutter.background'], AA_NON_TEXT],
+  ['editorGutter.deletedBackground', ['editorGutter.background'], AA_NON_TEXT],
+  ['editorGutter.commentRangeForeground', ['editorGutter.background'], AA_NON_TEXT],
+  ['minimapGutter.addedBackground', ['editor.background'], AA_NON_TEXT],
+  ['minimapGutter.modifiedBackground', ['editor.background'], AA_NON_TEXT],
+  ['minimapGutter.deletedBackground', ['editor.background'], AA_NON_TEXT],
+
+  ['diffEditor.unchangedRegionForeground', ['diffEditor.unchangedRegionBackground']],
+  // The conflict markers themselves are plain editor text sitting on the
+  // header background.
+  ['editor.foreground', ['merge.currentHeaderBackground', 'editor.background']],
+  ['editor.foreground', ['merge.incomingHeaderBackground', 'editor.background']],
+  ['editor.foreground', ['merge.commonHeaderBackground', 'editor.background']],
 ];
 
 /**
@@ -214,6 +250,48 @@ function editorSurfaces(colors) {
       color: bg(['diffEditor.insertedLineBackground', 'editor.background']),
     },
     { name: 'diff removed', color: bg(['diffEditor.removedLineBackground', 'editor.background']) },
+    // The word-level highlight stacks on top of the line-level one, so a
+    // changed word inside a changed line is the darkest case in a diff.
+    {
+      name: 'diff inserted word',
+      color: bg([
+        'diffEditor.insertedTextBackground',
+        'diffEditor.insertedLineBackground',
+        'editor.background',
+      ]),
+    },
+    {
+      name: 'diff removed word',
+      color: bg([
+        'diffEditor.removedTextBackground',
+        'diffEditor.removedLineBackground',
+        'editor.background',
+      ]),
+    },
+    {
+      name: 'merge current',
+      color: bg(['merge.currentContentBackground', 'editor.background']),
+    },
+    {
+      name: 'merge incoming',
+      color: bg(['merge.incomingContentBackground', 'editor.background']),
+    },
+    {
+      name: 'merge common',
+      color: bg(['merge.commonContentBackground', 'editor.background']),
+    },
+    {
+      name: 'merge editor change',
+      color: bg(['mergeEditor.change.background', 'editor.background']),
+    },
+    {
+      name: 'merge editor changed word',
+      color: bg([
+        'mergeEditor.change.word.background',
+        'mergeEditor.change.background',
+        'editor.background',
+      ]),
+    },
   ].filter((s) => s.color);
 }
 
