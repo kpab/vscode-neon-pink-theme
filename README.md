@@ -55,6 +55,8 @@ The extension contributes three themes. They are the same theme — same hues, s
 
 Pick one with `Ctrl+K Ctrl+T` / `Cmd+K Cmd+T` — all three appear in the list after a single install.
 
+![The same file in all three variants](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/variants.png)
+
 **Why lift the background at all?** High-saturation magenta on `#000000` smears visibly while scrolling on OLED panels, because the pixels are switching fully off and back on. A background a few points above black keeps them lit and the smearing stops. It also stops the background from disappearing entirely in bright ambient light, where pure black reads as a hole rather than a surface.
 
 **How the variants are built.** `themes/neon-pink-dark-color-theme.json` is the only hand-maintained theme. The other two are generated from it by [`scripts/build-themes.js`](scripts/build-themes.js) and committed, so the extension stays dependency-free at install time while three copies of the palette cannot drift apart — `npm test` regenerates them and fails if what is on disk differs. The transform is three steps:
@@ -120,13 +122,33 @@ The variants keep the hue and the ratio and only give up saturation — the acce
 
 ## 🖼️ Screenshots
 
-> Screenshots coming soon
+Every shot below is the extension running in VS Code, at a readable font size, on real files rather than a synthetic sample.
 
-**Example code with Neon Pink Dark:**
-- Keywords glow in vibrant neon pink
-- Strings shimmer in bright pink tones
-- Comments recede into a muted pink without dropping out of legibility
-- The pure black background makes colors pop
+![Neon Pink Dark — the contrast checker in JavaScript](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/hero.png)
+
+**The whole window** — activity bar, explorer, tabs, breadcrumbs, minimap, terminal and status bar. The terminal shows the 16 ANSI colors and a `git log` graph, both of which the theme defines rather than inherits.
+
+![The full workbench, with the terminal open](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/full-window.png)
+
+**TypeScript** — types, interfaces, regex literals and template strings.
+
+![TypeScript](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/typescript.png)
+
+**Python** — decorators, dataclasses, docstrings and f-strings.
+
+![Python](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/python.png)
+
+**Markdown** — headings, emphasis, inline code, links and blockquotes each get their own treatment.
+
+![Markdown](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/markdown.png)
+
+**Diff** — inserted and removed lines at both line and word level, with the word-level borders that mark where a change starts and ends.
+
+![The diff editor](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/diff.png)
+
+**Command Palette** — the overlay widgets are colored too: the palette, quick pick, IntelliSense, hovers and notifications.
+
+![The Command Palette](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/command-palette.png)
 
 ## 🌐 Language Support
 
