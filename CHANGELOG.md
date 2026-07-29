@@ -7,6 +7,35 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Continuous integration. `.github/workflows/validate.yml` runs the full check suite on every push and pull request, then packages the extension so a manifest error surfaces before a tag rather than during a release ([#14])
+- `scripts/validate-themes.js`, now the first thing `npm test` runs. It catches the four mistakes that ship silently in a theme: a malformed color value, a key VS Code does not register, a key written twice — `JSON.parse` keeps the last one without a word — and a malformed `tokenColors` entry. It found two live ones on its first run, both listed under Changed below ([#14])
+- `scripts/extract-color-keys.js` and the `scripts/vscode-color-keys.json` it generates: the 918 color keys VS Code 1.130 registers, read out of a local install ([#14])
+- A coverage report. `npm run validate -- --coverage` lists the registered keys the theme does not set, grouped by prefix, with the areas that are unset on purpose filtered out and documented in `IGNORED_GROUPS`. The base theme sets 286 of 918 ([#14])
+- Release automation. `.github/workflows/release.yml` turns a `v*` tag into a Marketplace release, an Open VSX release and a GitHub Release with the VSIX attached. It refuses to run if the tag and `package.json` disagree, or if the version has no CHANGELOG section ([#14])
+- `scripts/extract-changelog.js`, which pulls one version's section out of this file for the release body, along with the reference-style link definitions that section uses ([#14])
+- `scripts/generate-icon.js`, run by `npm run icon`. `sharp` had been in `devDependencies` since the first commit with nothing in the repository using it — the icon was converted by hand from the options in `ICON_GUIDE.md`, so `icon.png` and `icon.svg` could drift apart with nothing to notice ([#14])
+- `CONTRIBUTING.md`, issue templates for bugs, color suggestions and features, and a pull request template ([#14])
+
+### Changed
+- `editorIndentGuide.background` and `editorIndentGuide.activeBackground` are recorded as deliberate exceptions in `validate-themes.js` rather than looking like typos. VS Code replaced both with numbered keys in 1.83, and `engines.vscode` still allows 1.80–1.82, so the theme sets old and new ([#14])
+- `package-lock.json` said version 0.0.1, four releases after that stopped being true. `npm version` keeps it in step from now on; the release procedure in `CONTRIBUTING.md` uses it ([#14])
+- `.vscodeignore` no longer lists `ICON_GUIDE.md` or `convert-icon.js`, neither of which exists now, and does exclude `package-lock.json`, `CONTRIBUTING.md` and `images/` ([#14])
+
+### Removed
+- `ICON_GUIDE.md`. Its four ways to convert the SVG by hand are replaced by `npm run icon`; what it documented about the icon itself is now in `CONTRIBUTING.md` ([#14])
+
+### Notes on the known-key list ([#14])
+- There is no published machine-readable list of VS Code's color keys. They are registered in code, and the JSON schema the editor serves for them lives behind an in-process `vscode://schemas/workbench-colors` URI that nothing outside the editor can fetch
+- So the list is read out of the shipped bundle. `registerColor(id, defaults, description)` survives minification with the id still a string literal and the description still a `d(N,null)` call, which is a specific enough shape to scan for. Of the callees that match it, the real one accounts for ~900 keys and the coincidences — context keys, CSS helpers, font-size tokens — a few dozen each, so the most frequent one wins
+- Two sources sit outside that bundle and are collected separately: the bundled extensions, which declare keys like `gitDecoration.*` in plain `contributes.colors` JSON, and the 16 terminal ANSI colors, which come from a table walked at startup and have no call site
+- The extraction runs against a local install and is not part of CI; its output is committed and records the VS Code version, so a stale list is visible rather than silent. A clone without the file still validates everything except key names
+
+### Notes on what CI does not do ([#14])
+- It does not screenshot or render the theme. Nothing on a runner can tell whether a color looks right, only whether it is well-formed and measures above the floor
+- The two publish steps are skipped when their token is not configured, so a fork or a repository without Marketplace credentials still gets a GitHub Release with the VSIX attached, and the run summary says what was skipped
+- The GitHub Release is created last. A Marketplace rejection then leaves no Release announcing a version that was never published
+
 ## [0.4.0] - 2026-07-29
 
 ### Added
@@ -175,3 +204,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#10]: https://github.com/kpab/vscode-neon-pink-theme/issues/10
 [#11]: https://github.com/kpab/vscode-neon-pink-theme/issues/11
 [#12]: https://github.com/kpab/vscode-neon-pink-theme/issues/12
+[#13]: https://github.com/kpab/vscode-neon-pink-theme/issues/13
+[#14]: https://github.com/kpab/vscode-neon-pink-theme/issues/14

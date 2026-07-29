@@ -1,0 +1,42 @@
+name: Feature request
+description: A variant, a language, or anything that is not a single color
+labels: [enhancement]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        For a single color, use the color suggestion template instead — it asks
+        the questions that decide whether that change can land.
+
+        The README's Roadmap lists what is already planned, and the CHANGELOG
+        records what was considered and deliberately left out. A light variant,
+        for instance, is not a fourth intensity of the existing three: neon pink
+        on white is a different design problem.
+
+  - type: textarea
+    id: what
+    attributes:
+      label: What
+      validations:
+        required: true
+
+  - type: textarea
+    id: why
+    attributes:
+      label: Why
+      description: What you are doing now instead, and where it falls short.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - A new variant
+        - Language-specific syntax colors
+        - Workbench UI coverage
+        - Tooling or repository setup
+        - Something else
+    validations:
+      required: true
