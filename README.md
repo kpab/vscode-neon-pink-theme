@@ -12,13 +12,30 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 
 ## ✨ Features
 
-- 🎨 **Pure Black Background** - Maximizes neon color contrast and reduces eye strain in dark environments
-- 💖 **Neon Pink Accents** - Vibrant #FF2DBE primary color for a true cyberpunk aesthetic
+- 🎨 **Pure Black Background** - `#000000` gives the neon accents the highest possible contrast
+- 💖 **Neon Pink Accents** - `#FF2DBE` as the primary color across the editor and workbench
 - 🌃 **Cyberpunk / Future Neon** - Inspired by neon signs in nighttime cityscapes
-- 👁️ **Eye-Friendly Design** - Carefully balanced pink-to-purple gradient reduces eye fatigue
-- ⚡ **High Contrast** - Maintains excellent code readability while looking stylish
-- 🎯 **Multi-Language Support** - Optimized syntax highlighting for JavaScript, Python, Go, Rust, and more
+- 🎯 **Language-Agnostic Highlighting** - One set of generic scopes (keywords, strings, numbers, functions, types, comments) applies uniformly to every language
 - 🔧 **Customizable** - Easy to override colors through VS Code settings
+
+> **This theme is early (`0.0.x`).** Color coverage is intentionally minimal right now, and surfaces the theme doesn't define fall back to VS Code's built-in dark theme. See [Current Scope](#-current-scope) for exactly what is and isn't covered, and the [Roadmap](#-roadmap) for what's next.
+
+## 📊 Current Scope
+
+| Area | Status |
+|---|---|
+| Editor background, foreground, cursor, selection, line numbers | ✅ Defined |
+| Sidebar, status bar, activity bar, tabs, title bar, panel | ✅ Defined |
+| Generic syntax scopes (keyword, string, variable, number, function, type, comment, punctuation) | ✅ Defined |
+| Lists, inputs, buttons, dropdowns, focus rings | ⬜ Falls back to the built-in dark theme |
+| Command Palette, IntelliSense, notifications, menus | ⬜ Falls back |
+| Terminal ANSI colors | ⬜ Falls back |
+| Error / warning / diff / Git decoration colors | ⬜ Falls back |
+| Search highlights, bracket pair colors | ⬜ Falls back |
+| Language-specific scopes (HTML, CSS, Markdown, JSON) | ⬜ Not defined |
+| Semantic highlighting | ⬜ Not enabled |
+
+**Accessibility note.** The main syntax colors meet WCAG AA (4.5:1) against pure black — keywords 6.4:1, functions 7.7:1, strings 10.3:1, body text 18.0:1. Three elements currently fall short and are being fixed in [v0.3.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/4): comments (3.6:1), line numbers (3.9:1) and inactive tab labels (3.0:1).
 
 ## 📦 Installation
 
@@ -78,28 +95,16 @@ code .
 
 ## 🌐 Language Support
 
-Syntax highlighting optimized for:
+Syntax colors are defined with **generic TextMate scopes** rather than per-language rules. The same eight rules apply to every language VS Code can tokenize, so JavaScript, TypeScript, Python, Go, Rust, Java, C/C++, Ruby, PHP and the rest all get consistent keyword / string / number / function / type / comment coloring out of the box.
 
-**Web Development**
-- JavaScript / TypeScript / JSX / TSX
-- HTML / CSS / SCSS / LESS
-- Vue / React / Svelte
+The tradeoff is that languages which lean on language-specific scopes are under-colored today:
 
-**Backend & Systems**
-- Python
-- Go
-- Rust
-- Java / Kotlin
-- C / C++ / C#
-- PHP / Ruby
+- **Markdown** — headings, bold, italic, links and code spans render in the default foreground
+- **HTML / JSX** — tags and attribute names are not distinguished from each other
+- **CSS** — selectors, properties and values are not distinguished
+- **JSON / YAML** — keys are not distinguished from values
 
-**Data & Config**
-- JSON / YAML / TOML / XML
-- Markdown
-- SQL
-- Shell scripts
-
-And many more!
+Adding these is tracked in [v0.2.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/3).
 
 ## ⚙️ Customization
 
@@ -140,11 +145,24 @@ For the best experience with this theme:
 
 **Neon Pink Dark** is designed with these principles:
 
-1. **Maximum Contrast**: Pure black (#000000) background provides the highest possible contrast
-2. **Consistent Color Language**: Pink shades indicate semantic meaning across all languages
-3. **Reduced Eye Strain**: Semi-transparent comments and balanced brightness levels
-4. **Aesthetic First**: While maintaining readability, we prioritize the cyberpunk aesthetic
-5. **Minimalist Approach**: Limited color palette creates a cohesive, focused experience
+1. **Maximum Contrast**: Pure black (`#000000`) gives foreground colors the highest possible contrast ratio
+2. **Consistent Color Language**: The same pink shade carries the same meaning in every language
+3. **Aesthetic First**: The cyberpunk look is the point — but not at the cost of reading your own code
+4. **Minimalist Approach**: A limited palette creates a cohesive, focused experience
+
+Where these conflict, readability wins. The semi-transparent comment color is a current example of getting that balance wrong: it looks right, but measures below WCAG AA. It's being corrected in v0.3.0.
+
+## 🗺️ Roadmap
+
+Tracked as [GitHub milestones](https://github.com/kpab/vscode-neon-pink-theme/milestones):
+
+| Version | Focus |
+|---|---|
+| [v0.1.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/2) | Complete workbench UI coverage — no more fallbacks to the built-in dark theme |
+| [v0.2.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/3) | Syntax depth — language-specific scopes and semantic highlighting |
+| [v0.3.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/4) | Accessibility — error/warning/diff colors and WCAG AA contrast |
+| [v0.4.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/5) | Soft and Dimmed variants for OLED and long sessions |
+| [v1.0.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/6) | Screenshots, CI and release automation |
 
 ## 🤝 Contributing
 

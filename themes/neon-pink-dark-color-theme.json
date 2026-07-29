@@ -12,6 +12,7 @@
     "editorLineNumber.activeForeground": "#FF99E6",
     "sideBar.background": "#000000",
     "sideBar.foreground": "#FFBEE8",
+    "sideBar.border": "#1A0010",
     "statusBar.background": "#1A0010",
     "statusBar.foreground": "#FF76D6",
     "activityBar.background": "#000000",
@@ -26,7 +27,9 @@
     "panel.border": "#33001A",
     "minimap.background": "#00000000",
     "badge.background": "#FF2DBE",
-    "contrastBorder": "#FF2DBE33"
+    "focusBorder": "#FF2DBE66",
+    "editorGroup.border": "#33001A",
+    "widget.border": "#33001A"
   },
   "tokenColors": [
     {

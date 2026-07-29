@@ -1,6 +1,7 @@
 .git
 .gitignore
 .github
+.claude
 .vscode
 .vscode-test
 *.vsix
