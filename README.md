@@ -27,7 +27,7 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 | Editor background, foreground, cursor, selection, line numbers | ✅ Defined |
 | Sidebar, status bar, activity bar, tabs, title bar, panel | ✅ Defined |
 | Generic syntax scopes (keyword, string, variable, number, function, type, comment, punctuation) | ✅ Defined |
-| Lists, inputs, buttons, dropdowns, focus rings | ⬜ Falls back to the built-in dark theme |
+| Lists, trees, inputs, buttons, dropdowns, checkboxes, focus rings, text links | ✅ Defined |
 | Command Palette, IntelliSense, notifications, menus | ⬜ Falls back |
 | Terminal ANSI colors | ⬜ Falls back |
 | Error / warning / diff / Git decoration colors | ⬜ Falls back |
@@ -35,7 +35,7 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 | Language-specific scopes (HTML, CSS, Markdown, JSON) | ⬜ Not defined |
 | Semantic highlighting | ⬜ Not enabled |
 
-**Accessibility note.** The main syntax colors meet WCAG AA (4.5:1) against pure black — keywords 6.4:1, functions 7.7:1, strings 10.3:1, body text 18.0:1. Three elements currently fall short and are being fixed in [v0.3.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/4): comments (3.6:1), line numbers (3.9:1) and inactive tab labels (3.0:1).
+**Accessibility note.** The main syntax colors meet WCAG AA (4.5:1) against pure black — keywords 6.4:1, functions 7.7:1, strings 10.3:1, body text 18.0:1. Three elements currently fall short and are being fixed in [v0.3.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/4): comments (3.6:1), line numbers (3.9:1) and inactive tab labels (3.0:1). Every label on the list, input, dropdown and button surfaces also clears 4.5:1 — the lowest is the button label at 6.2:1 against the neon pink fill.
 
 ## 📦 Installation
 

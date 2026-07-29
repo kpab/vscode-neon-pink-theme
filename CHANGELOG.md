@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- List and tree colors — active/inactive selection, hover, focus, focus outline, match highlight, error/warning foreground and indent guides. The Explorer no longer shows Dark+'s blue `#04395E` selection ([#3])
+- Input colors — `input.*`, `inputOption.active*`, `inputValidation.error*`, `dropdown.*` and `checkbox.*` ([#3])
+- Button colors — primary, secondary and their hover states ([#3])
+- Text link colors — `textLink.foreground` / `.activeForeground` ([#3])
+- `badge.foreground`, which was inheriting Dark+'s white and rendering at 3.3:1 on the neon pink badge background ([#3])
+
+### Changed
+- `focusBorder` is now solid `#FF2DBE` instead of `#FF2DBE66`. At 40% alpha over pure black the focus ring was barely visible ([#3])
+
 ## [0.0.2] - 2026-07-29
 
 ### Fixed
@@ -47,3 +57,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 [#1]: https://github.com/kpab/vscode-neon-pink-theme/issues/1
 [#2]: https://github.com/kpab/vscode-neon-pink-theme/issues/2
+[#3]: https://github.com/kpab/vscode-neon-pink-theme/issues/3
