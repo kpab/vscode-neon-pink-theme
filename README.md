@@ -32,7 +32,7 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 | Terminal — all 16 ANSI slots, cursor, selection | ✅ Defined |
 | Search / word highlights, bracket pair colors, overview ruler and minimap markers | ✅ Defined |
 | Error / warning / diff / Git decoration colors | 🟡 Partial — notification and list icons are defined; editor diagnostics, the diff editor and Git decorations still fall back |
-| Language-specific scopes (HTML, CSS, Markdown, JSON) | ⬜ Not defined |
+| Language-specific scopes (HTML/JSX, CSS, Markdown, JSON, YAML, shell, regex) | ✅ Defined |
 | Semantic highlighting | ⬜ Not enabled |
 
 **Accessibility note.** The main syntax colors meet WCAG AA (4.5:1) against pure black — keywords 6.4:1, functions 7.7:1, strings 10.3:1, body text 18.0:1. Three elements currently fall short and are being fixed in [v0.3.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/4): comments (3.6:1), line numbers (3.9:1) and inactive tab labels (3.0:1). Every label on the list, input, dropdown and button surfaces also clears 4.5:1 — the lowest is the button label at 6.2:1 against the neon pink fill.
@@ -97,14 +97,15 @@ code .
 
 Syntax colors start from **generic TextMate scopes** rather than per-language rules. The same 23 rules apply to every language VS Code can tokenize, so JavaScript, TypeScript, Python, Go, Rust, Java, C/C++, Ruby, PHP and the rest all get consistent coloring out of the box — and the same concept keeps the same shade across languages, so `if` is the same pink in Rust as it is in Python.
 
-The tradeoff is that languages which lean on language-specific scopes are under-colored today:
+On top of that sit **language-specific rules** for the languages that markup and data files depend on:
 
-- **Markdown** — headings, bold, italic, links and code spans render in the default foreground
-- **HTML / JSX** — tags and attribute names are not distinguished from each other
-- **CSS** — selectors, properties and values are not distinguished
-- **JSON / YAML** — keys are not distinguished from values
+- **Markdown** — headings step down the pink ramp h1–h6; bold, italic, strikethrough, blockquotes, inline code, fenced blocks, links, tables and thematic breaks are each distinct from body text
+- **HTML / JSX** — tag names, attribute names and attribute values are three different colors
+- **CSS / SCSS / LESS** — element, class, id and pseudo-class selectors are distinguished from each other, and property names from values; custom properties (`--var`) get their own color
+- **JSON / YAML / TOML** — keys are distinguished from values
+- **Shell / SQL / regex** — interpolation, character classes and anchors are colored separately
 
-Adding these is tracked in [v0.2.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/3).
+Coverage was checked by tokenizing sample files with the same TextMate grammars VS Code ships. What still falls back to the plain foreground is prose (HTML text nodes, Markdown paragraphs) and identifiers the grammars leave unscoped, such as SQL table and column names.
 
 ## ⚙️ Customization
 

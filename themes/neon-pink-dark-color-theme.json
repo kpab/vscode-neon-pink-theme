@@ -447,6 +447,280 @@
       "settings": {
         "foreground": "#FFBEE8"
       }
+    },
+
+    {
+      "name": "Regex — character class, \\d \\w \\s [a-z]",
+      "scope": [
+        "constant.character.class.regexp",
+        "constant.other.character-class.regexp",
+        "constant.other.character-class.set.regexp"
+      ],
+      "settings": {
+        "foreground": "#4DDDE8"
+      }
+    },
+    {
+      "name": "Regex — anchors, ^ $ \\b",
+      "scope": ["keyword.control.anchor.regexp"],
+      "settings": {
+        "foreground": "#FF2DBE"
+      }
+    },
+
+    {
+      "name": "HTML/JSX — tag name",
+      "scope": ["entity.name.tag"],
+      "settings": {
+        "foreground": "#FF2DBE"
+      }
+    },
+    {
+      "name": "HTML/JSX — attribute name",
+      "scope": ["entity.other.attribute-name"],
+      "settings": {
+        "foreground": "#FF5EC4"
+      }
+    },
+    {
+      "name": "JSX — component tag",
+      "scope": [
+        "support.class.component",
+        "entity.name.tag.custom",
+        "meta.tag.custom entity.name.tag"
+      ],
+      "settings": {
+        "foreground": "#FF9AD6"
+      }
+    },
+
+    {
+      "name": "CSS — element selector",
+      "scope": ["entity.name.tag.css", "entity.name.tag.scss", "entity.name.tag.less"],
+      "settings": {
+        "foreground": "#FF5AD0"
+      }
+    },
+    {
+      "name": "CSS — class selector",
+      "scope": ["entity.other.attribute-name.class"],
+      "settings": {
+        "foreground": "#FF5EC4"
+      }
+    },
+    {
+      "name": "CSS — id selector",
+      "scope": ["entity.other.attribute-name.id"],
+      "settings": {
+        "foreground": "#FF2DBE"
+      }
+    },
+    {
+      "name": "CSS — pseudo-class and pseudo-element",
+      "scope": [
+        "entity.other.attribute-name.pseudo-class",
+        "entity.other.attribute-name.pseudo-element",
+        "entity.other.attribute-name.parent-selector"
+      ],
+      "settings": {
+        "foreground": "#FF7ADB"
+      }
+    },
+    {
+      "name": "CSS — @keyframes offsets, from / to",
+      "scope": ["entity.other.keyframe-offset"],
+      "settings": {
+        "foreground": "#FF2DBE"
+      }
+    },
+    {
+      "name": "CSS — property name",
+      "scope": ["support.type.property-name", "meta.at-rule.media.header"],
+      "settings": {
+        "foreground": "#FF9AD6"
+      }
+    },
+    {
+      "name": "CSS — property value",
+      "scope": [
+        "support.constant.property-value",
+        "support.constant.font-name",
+        "support.constant.media",
+        "constant.other.color"
+      ],
+      "settings": {
+        "foreground": "#FF55C3"
+      }
+    },
+    {
+      "name": "CSS/SCSS/LESS — custom property and variable",
+      "scope": [
+        "variable.other.custom-property",
+        "variable.css",
+        "variable.scss",
+        "variable.less",
+        "variable.argument.css"
+      ],
+      "settings": {
+        "foreground": "#FF7ADB"
+      }
+    },
+
+    {
+      "name": "Markdown — heading",
+      "scope": ["markup.heading", "entity.name.section"],
+      "settings": {
+        "foreground": "#FF2DBE",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown — heading level 2",
+      "scope": ["heading.2 entity.name.section"],
+      "settings": {
+        "foreground": "#FF5AD0",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown — heading level 3",
+      "scope": ["heading.3 entity.name.section"],
+      "settings": {
+        "foreground": "#FF7ADB",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown — heading level 4",
+      "scope": ["heading.4 entity.name.section"],
+      "settings": {
+        "foreground": "#FF89D6",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown — heading level 5",
+      "scope": ["heading.5 entity.name.section"],
+      "settings": {
+        "foreground": "#FF9AD6",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown — heading level 6",
+      "scope": ["heading.6 entity.name.section"],
+      "settings": {
+        "foreground": "#FFBEE8",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown — bold",
+      "scope": ["markup.bold"],
+      "settings": {
+        "foreground": "#FF5EC4",
+        "fontStyle": "bold"
+      }
+    },
+    {
+      "name": "Markdown — italic",
+      "scope": ["markup.italic"],
+      "settings": {
+        "foreground": "#FF9AD6",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown — strikethrough",
+      "scope": ["markup.strikethrough"],
+      "settings": {
+        "foreground": "#C77AAE",
+        "fontStyle": "strikethrough"
+      }
+    },
+    {
+      "name": "Markdown — inline code and fenced blocks",
+      "scope": ["markup.inline.raw", "markup.raw", "markup.fenced_code"],
+      "settings": {
+        "foreground": "#FF8CF0"
+      }
+    },
+    {
+      "name": "Markdown — fenced block language",
+      "scope": ["fenced_code.block.language"],
+      "settings": {
+        "foreground": "#FF9AD6"
+      }
+    },
+    {
+      "name": "Markdown — blockquote",
+      "scope": ["markup.quote"],
+      "settings": {
+        "foreground": "#C77AAE",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Markdown — list bullets",
+      "scope": ["punctuation.definition.list", "beginning.punctuation.definition.list"],
+      "settings": {
+        "foreground": "#FF2DBE"
+      }
+    },
+    {
+      "name": "Markdown — link",
+      "scope": ["markup.underline.link", "string.other.link", "markup.underline"],
+      "settings": {
+        "foreground": "#FF66D9",
+        "fontStyle": "underline"
+      }
+    },
+    {
+      "name": "Markdown — table",
+      "scope": ["markup.table"],
+      "settings": {
+        "foreground": "#FFBEE8"
+      }
+    },
+    {
+      "name": "Markdown — thematic break",
+      "scope": ["meta.separator"],
+      "settings": {
+        "foreground": "#FF7ADB"
+      }
+    },
+
+    {
+      "name": "JSON/YAML/TOML — key",
+      "scope": [
+        "support.type.property-name.json",
+        "support.type.property-name.toml",
+        "entity.name.tag.yaml",
+        "entity.name.tag.toml"
+      ],
+      "settings": {
+        "foreground": "#FF9AD6"
+      }
+    },
+    {
+      "name": "YAML — document markers and anchors",
+      "scope": [
+        "entity.other.document.begin",
+        "entity.other.document.end",
+        "punctuation.definition.anchor",
+        "punctuation.definition.alias"
+      ],
+      "settings": {
+        "foreground": "#FFBEE8"
+      }
+    },
+
+    {
+      "name": "Shell — interpolation and command substitution",
+      "scope": ["string.interpolated", "punctuation.definition.variable.shell"],
+      "settings": {
+        "foreground": "#FF8CF0"
+      }
     }
   ]
 }
