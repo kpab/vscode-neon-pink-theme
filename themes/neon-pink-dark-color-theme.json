@@ -231,51 +231,219 @@
   },
   "tokenColors": [
     {
-      "scope": ["keyword", "storage"],
-      "settings": {
-        "foreground": "#FF2DBE",
-        "fontStyle": ""
-      }
-    },
-    {
-      "scope": ["string"],
-      "settings": {
-        "foreground": "#FF8CF0"
-      }
-    },
-    {
-      "scope": ["variable", "parameter"],
-      "settings": {
-        "foreground": "#FFD6FF"
-      }
-    },
-    {
-      "scope": ["constant.numeric"],
-      "settings": {
-        "foreground": "#FF55C3"
-      }
-    },
-    {
-      "scope": ["entity.name.function"],
-      "settings": {
-        "foreground": "#FF5EC4"
-      }
-    },
-    {
-      "scope": ["entity.name.type", "support.type"],
-      "settings": {
-        "foreground": "#FF9AD6"
-      }
-    },
-    {
-      "scope": ["comment"],
+      "name": "Comment",
+      "scope": ["comment", "punctuation.definition.comment"],
       "settings": {
         "foreground": "#FF66CAA3",
         "fontStyle": "italic"
       }
     },
     {
-      "scope": ["punctuation", "delimiter"],
+      "name": "Keyword",
+      "scope": ["keyword", "keyword.control", "keyword.other"],
+      "settings": {
+        "foreground": "#FF2DBE",
+        "fontStyle": ""
+      }
+    },
+    {
+      "name": "Operator",
+      "scope": ["keyword.operator", "storage.type.function.arrow"],
+      "settings": {
+        "foreground": "#FF7ADB"
+      }
+    },
+    {
+      "name": "Word operator — typeof, instanceof, in, new, await, and, or, not",
+      "scope": [
+        "keyword.operator.expression",
+        "keyword.operator.new",
+        "keyword.operator.delete",
+        "keyword.operator.word",
+        "keyword.operator.logical.python"
+      ],
+      "settings": {
+        "foreground": "#FF2DBE"
+      }
+    },
+    {
+      "name": "Storage — class, function, const, int, public, static, async",
+      "scope": ["storage", "storage.type", "storage.modifier"],
+      "settings": {
+        "foreground": "#FF5AD0",
+        "fontStyle": ""
+      }
+    },
+    {
+      "name": "String",
+      "scope": ["string", "punctuation.definition.string"],
+      "settings": {
+        "foreground": "#FF8CF0"
+      }
+    },
+    {
+      "name": "Escape sequence — \\n, \\t, \\u1F600, f-string placeholders",
+      "scope": [
+        "constant.character.escape",
+        "constant.character.entity",
+        "constant.character.format.placeholder"
+      ],
+      "settings": {
+        "foreground": "#4DDDE8"
+      }
+    },
+    {
+      "name": "Regular expression literal",
+      "scope": ["string.regexp"],
+      "settings": {
+        "foreground": "#7DFFC6"
+      }
+    },
+    {
+      "name": "Number",
+      "scope": ["constant.numeric", "keyword.other.unit"],
+      "settings": {
+        "foreground": "#FF55C3"
+      }
+    },
+    {
+      "name": "Language constant — true, false, null, nil, undefined",
+      "scope": ["constant.language", "constant.other", "support.constant"],
+      "settings": {
+        "foreground": "#FF55C3"
+      }
+    },
+    {
+      "name": "User constant — SCREAMING_CASE",
+      "scope": ["variable.other.constant", "variable.other.enummember"],
+      "settings": {
+        "foreground": "#FF55C3"
+      }
+    },
+    {
+      "name": "Variable",
+      "scope": [
+        "variable",
+        "variable.other",
+        "support.variable",
+        "entity.name.variable"
+      ],
+      "settings": {
+        "foreground": "#FFD6FF"
+      }
+    },
+    {
+      "name": "Property access — obj.member",
+      "scope": [
+        "variable.other.property",
+        "variable.other.object.property",
+        "support.variable.property",
+        "entity.name.variable.property",
+        "entity.name.variable.field",
+        "meta.attribute.python",
+        "meta.object-literal.key"
+      ],
+      "settings": {
+        "foreground": "#FF89D6"
+      }
+    },
+    {
+      "name": "Parameter",
+      "scope": [
+        "variable.parameter",
+        "entity.name.variable.parameter",
+        "meta.parameter",
+        "meta.function.parameter"
+      ],
+      "settings": {
+        "foreground": "#FFC2F0",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Language variable — this, self, super",
+      "scope": ["variable.language"],
+      "settings": {
+        "foreground": "#FF5AD0",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Function and method",
+      "scope": [
+        "entity.name.function",
+        "support.function",
+        "meta.function-call.generic",
+        "variable.function"
+      ],
+      "settings": {
+        "foreground": "#FF5EC4"
+      }
+    },
+    {
+      "name": "Type, class, interface, namespace",
+      "scope": [
+        "entity.name.type",
+        "entity.name.class",
+        "entity.name.namespace",
+        "entity.name.scope-resolution",
+        "support.type",
+        "support.class",
+        "storage.type.class",
+        "meta.type.annotation"
+      ],
+      "settings": {
+        "foreground": "#FF9AD6"
+      }
+    },
+    {
+      "name": "Inherited class and type parameter",
+      "scope": ["entity.other.inherited-class", "entity.name.type.parameter"],
+      "settings": {
+        "foreground": "#FF9AD6",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "name": "Decorator — @decorator, #[attribute]",
+      "scope": [
+        "entity.name.function.decorator",
+        "entity.name.decorator",
+        "meta.decorator",
+        "punctuation.decorator",
+        "meta.attribute.rust",
+        "entity.name.function.preprocessor",
+        "meta.preprocessor"
+      ],
+      "settings": {
+        "foreground": "#C77DFF"
+      }
+    },
+    {
+      "name": "Label — goto targets, loop labels, C case labels",
+      "scope": ["entity.name.label", "constant.other.label"],
+      "settings": {
+        "foreground": "#FF9AD6"
+      }
+    },
+    {
+      "name": "Invalid — genuine syntax errors",
+      "scope": ["invalid", "invalid.illegal"],
+      "settings": {
+        "foreground": "#FF4A5F"
+      }
+    },
+    {
+      "name": "Deprecated",
+      "scope": ["invalid.deprecated"],
+      "settings": {
+        "foreground": "#FF9AD6",
+        "fontStyle": "strikethrough"
+      }
+    },
+    {
+      "name": "Punctuation",
+      "scope": ["punctuation", "delimiter", "meta.brace"],
       "settings": {
         "foreground": "#FFBEE8"
       }

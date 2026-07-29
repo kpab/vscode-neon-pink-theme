@@ -26,7 +26,7 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 |---|---|
 | Editor background, foreground, cursor, selection, line numbers | ✅ Defined |
 | Sidebar, status bar, activity bar, tabs, title bar, panel | ✅ Defined |
-| Generic syntax scopes (keyword, string, variable, number, function, type, comment, punctuation) | ✅ Defined |
+| Generic syntax scopes — 23 rules covering keywords, storage, operators, constants, variables, parameters, properties, functions, types, decorators, escapes, regex and `invalid` | ✅ Defined |
 | Lists, trees, inputs, buttons, dropdowns, checkboxes, focus rings, text links | ✅ Defined |
 | Command Palette, IntelliSense, hovers, peek view, notifications, menus, breadcrumbs, scrollbars | ✅ Defined |
 | Terminal — all 16 ANSI slots, cursor, selection | ✅ Defined |
@@ -95,7 +95,7 @@ code .
 
 ## 🌐 Language Support
 
-Syntax colors are defined with **generic TextMate scopes** rather than per-language rules. The same eight rules apply to every language VS Code can tokenize, so JavaScript, TypeScript, Python, Go, Rust, Java, C/C++, Ruby, PHP and the rest all get consistent keyword / string / number / function / type / comment coloring out of the box.
+Syntax colors start from **generic TextMate scopes** rather than per-language rules. The same 23 rules apply to every language VS Code can tokenize, so JavaScript, TypeScript, Python, Go, Rust, Java, C/C++, Ruby, PHP and the rest all get consistent coloring out of the box — and the same concept keeps the same shade across languages, so `if` is the same pink in Rust as it is in Python.
 
 The tradeoff is that languages which lean on language-specific scopes are under-colored today:
 

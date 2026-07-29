@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- 15 more generic TextMate scopes, taking `tokenColors` from 8 rules to 23 ([#7])
+- `keyword.control`, `storage` and `keyword.operator` are now three colors instead of one — `#FF2DBE`, `#FF5AD0` and `#FF7ADB` — so `if`, `class` and `=>` no longer look alike ([#7])
+- `constant.language`, `variable.other.constant` and `support.constant` on the number color `#FF55C3`. `true`, `null` and `MAX_RETRIES` were rendering as plain foreground ([#7])
+- `variable.parameter` split from `variable` as `#FFC2F0` italic, and property access given its own `#FF89D6` ([#7])
+- `invalid.illegal` on coral `#FF4A5F`. Genuine syntax errors previously carried no color signal at all ([#7])
+- `constant.character.escape` on cyan `#4DDDE8` and `string.regexp` on mint `#7DFFC6` ([#7])
+- Decorators on violet `#C77DFF`, covering `@decorator` and Rust's `#[derive]` ([#7])
+
+### Notes on the accent colors ([#7])
+- Three scopes take a hue outside the pink ramp. Escape sequences, regex literals and syntax errors are all cases where "this is not ordinary code" is the message, and a ramp position cannot carry that. The hues are the ones already used by the bracket pair and ANSI palettes, so no new color enters the theme
+- `punctuation.definition.tag` and similar structural punctuation keep inheriting `#FFBEE8` rather than taking the color of what they delimit — matching them to the tag name makes dense markup harder to scan
+
 ## [0.1.0] - 2026-07-29
 
 ### Added
@@ -76,3 +89,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#4]: https://github.com/kpab/vscode-neon-pink-theme/issues/4
 [#5]: https://github.com/kpab/vscode-neon-pink-theme/issues/5
 [#6]: https://github.com/kpab/vscode-neon-pink-theme/issues/6
+[#7]: https://github.com/kpab/vscode-neon-pink-theme/issues/7
