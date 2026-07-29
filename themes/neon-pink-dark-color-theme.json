@@ -168,7 +168,30 @@
     "breadcrumb.background": "#000000",
     "breadcrumb.foreground": "#C77AAE",
     "breadcrumb.focusForeground": "#FFE6FF",
-    "breadcrumb.activeSelectionForeground": "#FF66D9"
+    "breadcrumb.activeSelectionForeground": "#FF66D9",
+
+    "terminal.background": "#000000",
+    "terminal.foreground": "#FFE6FF",
+    "terminal.border": "#33001A",
+    "terminal.selectionBackground": "#7A004980",
+    "terminalCursor.foreground": "#FF2DBE",
+    "terminalCursor.background": "#000000",
+    "terminal.ansiBlack": "#1A0010",
+    "terminal.ansiBrightBlack": "#A8628F",
+    "terminal.ansiRed": "#FF4A5F",
+    "terminal.ansiBrightRed": "#FF7A70",
+    "terminal.ansiGreen": "#3FE0A0",
+    "terminal.ansiBrightGreen": "#6BFFB0",
+    "terminal.ansiYellow": "#FFB35C",
+    "terminal.ansiBrightYellow": "#FFD08C",
+    "terminal.ansiBlue": "#8C6BFF",
+    "terminal.ansiBrightBlue": "#9E85FF",
+    "terminal.ansiMagenta": "#FF2DBE",
+    "terminal.ansiBrightMagenta": "#FF7ADB",
+    "terminal.ansiCyan": "#4DDDE8",
+    "terminal.ansiBrightCyan": "#8CF0F7",
+    "terminal.ansiWhite": "#FFD6FF",
+    "terminal.ansiBrightWhite": "#FFFFFF"
   },
   "tokenColors": [
     {
