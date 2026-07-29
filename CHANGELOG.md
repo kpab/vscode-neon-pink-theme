@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- `scripts/check-contrast.js`, run by `npm test`. It measures 299 pairs — every `tokenColors` and `semanticTokenColors` foreground against three editor surfaces, plus every workbench label against its own background — composites alpha before measuring, and exits non-zero on anything below threshold ([#11])
+
+### Changed
+- Comments are now a solid `#C77AAE` instead of `#FF66CAA3`. At 64% opacity the color that actually reached the eye was `#A34181`, which measures 3.6:1 on black and 2.9:1 inside a selection ([#11])
+- `editorLineNumber.foreground` `#FF66CCAA` → `#B3689B`, 3.9:1 → 5.4:1. Also solid, for the same reason ([#11])
+- `tab.inactiveForeground` `#82456A` → `#A8628F`, 3.0:1 → 4.8:1. It now matches the inactive title bar, activity bar and panel titles, which were already at that value ([#11])
+- `editor.selectionBackground` `#660033` → `#4D0026`. The selection raises the floor luminance for everything sitting on it, and at `#660033` the darkest token — the `#FF2DBE` keyword — measured 4.0:1 inside a selection. It is now 4.7:1 ([#11])
+
+### Notes on the contrast work ([#11])
+- The whole palette is now free of alpha in any foreground position. The three colors that failed were the three that carried alpha, and the README color table had been listing the declared value, not the composited one
+- `editor.selectionForeground` was considered and rejected. It would have fixed the selection cases in one key, but it overrides every token color inside the selection, so selecting a block would have flattened it to a single color
+- Whitespace markers and indent guides are exempt from the check, and the script prints why. A guide that meets 3:1 stops being a guide
+
 ## [0.2.0] - 2026-07-29
 
 ### Added
@@ -117,3 +131,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 [#7]: https://github.com/kpab/vscode-neon-pink-theme/issues/7
 [#8]: https://github.com/kpab/vscode-neon-pink-theme/issues/8
 [#9]: https://github.com/kpab/vscode-neon-pink-theme/issues/9
+[#10]: https://github.com/kpab/vscode-neon-pink-theme/issues/10
+[#11]: https://github.com/kpab/vscode-neon-pink-theme/issues/11
