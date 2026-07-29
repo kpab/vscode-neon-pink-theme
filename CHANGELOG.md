@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- Screenshots, in both READMEs. Eight of them: a hero shot, the full workbench with the terminal open, TypeScript, Python, Markdown, the diff editor, the Command Palette, and the three variants stacked on the same file. The listing had said "Screenshots coming soon" since the first release, which for a theme is the one gap that decides whether anyone installs it ([#13])
+- `images/`, excluded from the VSIX. Marketplace README images have to resolve to absolute URLs, so both READMEs reference them through `raw.githubusercontent.com` rather than relative paths — which also means the pictures are not shipped to every user who installs the extension ([#13])
+
+### Added — CI and release automation
 - Continuous integration. `.github/workflows/validate.yml` runs the full check suite on every push and pull request, then packages the extension so a manifest error surfaces before a tag rather than during a release ([#14])
 - `scripts/validate-themes.js`, now the first thing `npm test` runs. It catches the four mistakes that ship silently in a theme: a malformed color value, a key VS Code does not register, a key written twice — `JSON.parse` keeps the last one without a word — and a malformed `tokenColors` entry. It found two live ones on its first run, both listed under Changed below ([#14])
 - `scripts/extract-color-keys.js` and the `scripts/vscode-color-keys.json` it generates: the 918 color keys VS Code 1.130 registers, read out of a local install ([#14])
@@ -24,6 +28,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Removed
 - `ICON_GUIDE.md`. Its four ways to convert the SVG by hand are replaced by `npm run icon`; what it documented about the icon itself is now in `CONTRIBUTING.md` ([#14])
+
+### Notes on the screenshots ([#13])
+- They are captures of a real VS Code window, not mockups. A throwaway profile with only this extension installed, so nothing in the pictures comes from another theme or a personal setting
+- The files in them are real: the theme's own contrast checker in JavaScript, and a TypeScript and a Python implementation of the same WCAG arithmetic — both of which run and produce the ratios the CHANGELOG quotes. A screenshot of invented code shows off the highlighter on code nobody would write
+- The terminal shot exists because the ANSI colors and the Git graph colors are defined by the theme, and nothing else in the README shows them in place
+- The variants are cropped to the editor area and stacked, so what is being compared is the background and the saturation rather than the chrome around them
+- 1440px wide, quantized to a palette. The theme uses few enough colors that this is a third of the size at no visible cost: 0.9 MB for all eight, which keeps the listing quick to load
 
 ### Notes on the known-key list ([#14])
 - There is no published machine-readable list of VS Code's color keys. They are registered in code, and the JSON schema the editor serves for them lives behind an in-process `vscode://schemas/workbench-colors` URI that nothing outside the editor can fetch

@@ -54,6 +54,8 @@
 
 `Ctrl+K Ctrl+T` / `Cmd+K Cmd+T` で選べます。1 回インストールすれば 3 つとも一覧に並びます。
 
+![同じファイルを 3 つのバリアントで表示](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/variants.png)
+
 **なぜ背景を持ち上げるのか。** 彩度の高いマゼンタを `#000000` に載せると、OLED ではスクロール中に尾を引いて見えます。ピクセルが完全に消えてから点き直すためです。黒から数ポイントだけ上げた背景ならピクセルが点いたままになり、この滲みは止まります。明るい場所で背景が「面」ではなく「穴」に見えてしまう問題にも効きます。
 
 **バリアントの作り方。** 手で保守するテーマは `themes/neon-pink-dark-color-theme.json` だけです。残り 2 つは [`scripts/build-themes.js`](scripts/build-themes.js) が生成してコミットします。インストール時に依存パッケージが要らないまま、3 つのパレットが別々にずれていくことも防げる形です（`npm test` が再生成して、ディスク上の内容と違えば失敗します）。変換は 3 段階です。
@@ -112,7 +114,33 @@ code .
 
 ## 📸 スクリーンショット
 
-> スクリーンショットは近日公開予定
+以下はすべて、実際に VS Code で動かした画面です。読めるフォントサイズで、サンプル用に作ったコードではなく実ファイルを開いています。
+
+![Neon Pink Dark — JavaScript のコントラスト測定スクリプト](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/hero.png)
+
+**ウィンドウ全体** — アクティビティバー、エクスプローラー、タブ、パンくず、ミニマップ、ターミナル、ステータスバー。ターミナルには ANSI 16 色と `git log` のグラフが出ています。どちらもテーマ側で定義した色で、既定値の流用ではありません。
+
+![ターミナルを開いたワークベンチ全体](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/full-window.png)
+
+**TypeScript** — 型・インターフェース・正規表現リテラル・テンプレート文字列。
+
+![TypeScript](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/typescript.png)
+
+**Python** — デコレーター、dataclass、docstring、f-string。
+
+![Python](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/python.png)
+
+**Markdown** — 見出し・強調・インラインコード・リンク・引用がそれぞれ別の扱いになります。
+
+![Markdown](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/markdown.png)
+
+**差分表示** — 追加行と削除行を行単位と語単位の両方で示し、語単位には変更の始まりと終わりを示す枠線が付きます。
+
+![差分エディタ](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/diff.png)
+
+**コマンドパレット** — オーバーレイ系のウィジェットにも色を当てています。パレット、クイックピック、IntelliSense、ホバー、通知。
+
+![コマンドパレット](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/command-palette.png)
 
 ## 🌐 対応言語
 
