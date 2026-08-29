@@ -6,7 +6,8 @@
 
 <p>
   <b>A cyberpunk-inspired dark theme with neon pink accents for Visual Studio Code.</b><br>
-  Pure black, three intensities, and every color measured — 2985 pairs, none below WCAG AA.
+  Pure black, three intensities, every color measured — 2985 pairs, none below WCAG AA.<br>
+  Plus Classic, the 0.0.1 palette kept as it was.
 </p>
 
 <p>
