@@ -36,8 +36,9 @@ change that skips the rebuild cannot be committed unnoticed.
 
 `themes/neon-pink-dark-classic-color-theme.json` is different: it is the
 corrected 0.0.1 snapshot and is never generated. Its SHA-256 is pinned in
-`scripts/theme-config.js`. Change it only deliberately, review the visual
-effect, and update the pinned hash in the same commit. The same check also
+`scripts/theme-config.js`, next to the number of contrast failures it is known
+to have. Change it only deliberately, review the visual effect, and update both
+in the same commit. The same check also
 asserts that every theme in `package.json` is classified exactly once as the
 base, a generated variant, or a frozen snapshot.
 
@@ -57,7 +58,7 @@ Three checks, in order:
 |---|---|
 | `validate-themes.js` | Malformed color values, keys VS Code does not register, a key written twice, a bad `tokenColors` entry |
 | `build-themes.js --check` | A stale generated variant, changed frozen snapshot, or unclassified registered theme |
-| `check-contrast.js` | Any modern-theme foreground below WCAG AA; Classic is audited and reported as non-blocking |
+| `check-contrast.js` | Any modern-theme foreground below WCAG AA or left unset; Classic is audited against a pinned failure count |
 
 The contrast check is the one that usually decides a modern-theme color. It
 measures every `tokenColors` and `semanticTokenColors` foreground against all
@@ -65,9 +66,14 @@ editor surfaces it can land on — including the current-line highlight,
 selection, diff and merge backgrounds — because a color that passes on pure
 black can still fail inside a selection. Alpha is composited before measuring:
 `#FF66CAA3` is 64% opacity, and what reaches the eye is much darker than the
-swatch suggests. Classic is measured too; use `node scripts/check-contrast.js
---verbose` for its individual results, while its known legacy failures remain
-non-blocking.
+swatch suggests. Classic is measured too. Six of its pairs sit below AA and are printed on every
+run without failing the build; `scripts/theme-config.js` declares that six, and
+the run fails if the measurement disagrees — the snapshot is hash-pinned, so
+that can only happen when this checker changes, which is when the number is
+worth looking at again. Use `node scripts/check-contrast.js --verbose` for its
+individual results. The keys Classic never sets are counted separately, not as
+failures: VS Code fills them from its own defaults. On the modern themes, where
+every checked key is set, an unset one is a regression and still blocks.
 
 There is very little headroom. The darkest token in the theme, the `#FF2DBE`
 accent, sits at 4.6:1 inside a selection against a 4.5:1 floor. A change that
