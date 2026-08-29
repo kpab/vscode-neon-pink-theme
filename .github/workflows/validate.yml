@@ -27,8 +27,8 @@ jobs:
       - run: npm ci
 
       # validate-themes.js, then build-themes.js --check, then
-      # check-contrast.js: is it a well-formed theme, was it rebuilt after the
-      # base theme changed, and is every pair still above WCAG AA.
+      # check-contrast.js: is it a well-formed theme, are generated and frozen
+      # files current, and is every modern-theme pair still above WCAG AA.
       - name: Validate
         run: npm test
 

@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- The **Neon Pink Dark Classic** theme: the corrected 0.0.1 palette under its own name. It preserves the original look but omits the old `contrastBorder`, whose ignored alpha would restore the opaque pink workbench border removed as a bug in 0.0.2. Its 24 workbench colors leave everything else to VS Code's stock Dark+ — the bright blue Commit button included. It is a frozen, hash-checked snapshot rather than a fourth intensity; contrast is still audited, and the six pairs that sit below AA — the line number, an inactive tab, a keyword inside a selection, and comments on three surfaces — are reported without failing the build. The keys it leaves to VS Code's defaults are counted apart from those rather than as failures of its own ([#24])
 - A generated banner at the top of both READMEs, and a GitHub social preview card. `scripts/generate-banner.js` (`npm run banner`) draws both from one composition and reads every color out of the base theme, so the artwork cannot drift from the palette. The two places a theme is judged before anything else — the top of the README and the card GitHub unfurls when the repository is linked — were showing a heading and a gray placeholder; the screenshots could not fill either, since they show the theme at VS Code's own scale, which is unreadable on a card
 - A Marketplace installs badge at the top of both READMEs, linking to the listing. It comes from `vsmarketplacebadges.dev` rather than shields.io, whose `visual-studio-marketplace/*` badges are retired and now render the words "retired badge" where the number should be
 - A star call to action in both READMEs: a section above Contributing and a closing block at the foot of the page, both carrying GitHub's own star button, plus the star count in the header badge row. A theme has no telemetry and collects reviews slowly, so the star count is most of what the next visitor has to judge it by — and until now the only ask was one bold line at the very bottom, below the keyword list. The section points anyone not yet convinced at Issues instead
@@ -237,3 +238,4 @@ The two things the listing was missing. v0.3.0 finished the colors and v0.4.0 fi
 [#12]: https://github.com/kpab/vscode-neon-pink-theme/issues/12
 [#13]: https://github.com/kpab/vscode-neon-pink-theme/issues/13
 [#14]: https://github.com/kpab/vscode-neon-pink-theme/issues/14
+[#24]: https://github.com/kpab/vscode-neon-pink-theme/issues/24

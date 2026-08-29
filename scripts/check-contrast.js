@@ -22,15 +22,23 @@
  *      so a color that passes on pure black can still fail in place.
  *
  * Every `tokenColors` and `semanticTokenColors` foreground is checked against
- * all four editor surfaces; workbench colors are checked against the surface
- * they actually render on, listed in UI_CHECKS.
+ * every editor, diff and merge surface it can land on; workbench colors are
+ * checked against the surface they actually render on, listed in UI_CHECKS.
+ *
+ * A key the theme does not set is not a contrast failure. VS Code falls back to
+ * its own default, which this script cannot see, so those pairs are counted and
+ * reported apart from the ones that were measured and came out too low.
  *
  * Usage: node scripts/check-contrast.js [--verbose]
- * Exits non-zero if any check falls below its threshold.
+ * Exits non-zero if a modern theme falls below threshold or leaves a checked key
+ * unset. Frozen historical snapshots are measured and reported without blocking,
+ * but their failure count is pinned, so a change to this checker that moves it
+ * has to be acknowledged in scripts/theme-config.js.
  */
 
 const fs = require('fs');
 const path = require('path');
+const { FROZEN_THEMES } = require('./theme-config');
 
 const ROOT = path.join(__dirname, '..');
 
@@ -43,14 +51,21 @@ const AA_NON_TEXT = 3.0;
  * Colors that are exempt, with the reason. A slot that is a background by
  * definition cannot be held to a foreground contrast ratio.
  */
-const EXEMPT = {
+const EXEMPT = Object.freeze({
   'terminal.ansiBlack': 'the black ANSI slot — programs use it as a background, not as text',
   'editorWhitespace.foreground':
     'a deliberately faint guide — at 3:1 the dots and arrows compete with the code they sit inside',
   'tree.indentGuidesStroke': 'same — an indent guide that meets 3:1 reads as a rule, not a hint',
   'diffEditor.diagonalFill':
     'the hatch over lines that do not exist on one side — a fill loud enough for 3:1 reads as content',
-};
+});
+
+/**
+ * Frozen historical snapshots are still measured, but their failures do not
+ * fail CI. This keeps the audit reproducible without pretending a legacy theme
+ * can be brought up to AA without changing the look it exists to preserve.
+ */
+const FROZEN = new Map(FROZEN_THEMES.map((theme) => [theme.label, theme]));
 
 // ---------------------------------------------------------------------------
 // color math
@@ -336,7 +351,7 @@ function measure(theme) {
   const results = [];
 
   for (const [key, bgKeys, min = AA_TEXT] of UI_CHECKS) {
-    if (EXEMPT[key]) continue;
+    if (Object.hasOwn(EXEMPT, key)) continue;
     if (!colors[key]) {
       results.push({ label: key, on: bgKeys[0], ratio: null, min, missing: true });
       continue;
@@ -378,12 +393,26 @@ function main() {
   const verbose = process.argv.includes('--verbose');
   let total = 0;
   let totalFailures = 0;
+  let frozenFailures = 0;
+  const baselineErrors = [];
 
   for (const entry of contributedThemes()) {
     const theme = JSON.parse(fs.readFileSync(entry.path, 'utf8'));
     const results = measure(theme);
-    const failures = results.filter((r) => r.missing || r.ratio < r.min);
-    const shown = verbose ? results : failures;
+    // Two different things, kept apart: a pair that was measured and came out
+    // below its threshold, and a key the theme leaves to VS Code's default.
+    // The modern themes set every key, so only a regression produces an unset
+    // one — which is why they are still blocking there. Classic sets 24 colors
+    // on purpose, so counting its 97 unset keys as failures would report a
+    // design decision as a defect.
+    const failures = results.filter((r) => !r.missing && r.ratio < r.min);
+    const unset = results.filter((r) => r.missing);
+    const frozen = FROZEN.get(entry.label);
+    const shown = verbose
+      ? results
+      : frozen
+        ? failures
+        : results.filter((r) => r.missing || r.ratio < r.min);
 
     console.log(`— ${entry.label} —`);
 
@@ -400,20 +429,50 @@ function main() {
       console.log('');
     }
 
-    console.log(`${results.length} checks, ${failures.length} below threshold\n`);
+    const counts = [`${results.length} checks`, `${failures.length} below threshold`];
+    if (unset.length) {
+      // Deliberate on a frozen snapshot, a regression anywhere else.
+      counts.push(frozen ? `${unset.length} left to VS Code's defaults` : `${unset.length} unset`);
+    }
+    const disposition = frozen ? ' (audited, non-blocking frozen snapshot)' : '';
+    console.log(`${counts.join(', ')}${disposition}\n`);
+
     total += results.length;
-    totalFailures += failures.length;
+    if (frozen) {
+      console.log(`frozen: ${entry.label} — ${frozen.reason}\n`);
+      frozenFailures += failures.length;
+      // The snapshot itself is hash-pinned, so this number can only move when
+      // this checker changes. Holding it to a declared value keeps that visible
+      // rather than letting a non-blocking theme drift in silence.
+      if (failures.length !== frozen.expectedFailures) {
+        baselineErrors.push(
+          `${entry.label} — ${failures.length} below threshold, ` +
+            `scripts/theme-config.js declares ${frozen.expectedFailures}`
+        );
+      }
+    } else {
+      totalFailures += failures.length + unset.length;
+    }
   }
 
   console.log(
-    `${total} checks across all themes, ${totalFailures} below threshold ` +
+    `${total} checks across all contributed themes, ${totalFailures} blocking and ` +
+      `${frozenFailures} frozen-snapshot failures ` +
       `(AA text ${AA_TEXT}:1, AA non-text ${AA_NON_TEXT}:1)`
   );
   for (const [key, reason] of Object.entries(EXEMPT)) {
     console.log(`exempt: ${key} — ${reason}`);
   }
 
-  process.exit(totalFailures ? 1 : 0);
+  if (baselineErrors.length) {
+    console.error(
+      `\nFrozen snapshot baseline mismatch:\n- ${baselineErrors.join('\n- ')}\n` +
+        'The snapshot is hash-pinned, so this means the checker changed. Review the\n' +
+        'new results with --verbose, then update expectedFailures in the same commit.'
+    );
+  }
+
+  process.exit(totalFailures || baselineErrors.length ? 1 : 0);
 }
 
 main();
