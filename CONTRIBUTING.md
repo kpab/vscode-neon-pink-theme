@@ -20,9 +20,9 @@ anything else.
 Press `F5` in VS Code to launch an Extension Development Host with the theme
 loaded, then pick it from `Preferences: Color Theme`.
 
-## Edit only the base theme
+## Know which theme files are hand-maintained
 
-`themes/neon-pink-dark-color-theme.json` is the single hand-maintained file.
+`themes/neon-pink-dark-color-theme.json` is the hand-maintained modern base.
 Soft and Dimmed are generated from it:
 
 ```bash
@@ -33,6 +33,13 @@ Editing a variant directly works right up until someone runs `npm run build`,
 which overwrites it. `npm test` runs `build-themes.js --check` first and fails if
 a generated file differs from what the base theme would produce, so a color
 change that skips the rebuild cannot be committed unnoticed.
+
+`themes/neon-pink-dark-classic-color-theme.json` is different: it is the
+corrected 0.0.1 snapshot and is never generated. Its SHA-256 is pinned in
+`scripts/theme-config.js`. Change it only deliberately, review the visual
+effect, and update the pinned hash in the same commit. The same check also
+asserts that every theme in `package.json` is classified exactly once as the
+base, a generated variant, or a frozen snapshot.
 
 How the variants are derived — desaturation at constant luminance, then a
 background lift paid back as foreground gain — is documented at the top of
@@ -49,15 +56,18 @@ Three checks, in order:
 | Check | What it catches |
 |---|---|
 | `validate-themes.js` | Malformed color values, keys VS Code does not register, a key written twice, a bad `tokenColors` entry |
-| `build-themes.js --check` | A base-theme edit that was not propagated to the variants |
-| `check-contrast.js` | Any foreground below WCAG AA on a surface it actually renders on |
+| `build-themes.js --check` | A stale generated variant, changed frozen snapshot, or unclassified registered theme |
+| `check-contrast.js` | Any modern-theme foreground below WCAG AA; Classic is audited and reported as non-blocking |
 
-The contrast check is the one that usually decides a color. It measures every
-`tokenColors` and `semanticTokenColors` foreground against four editor surfaces
-— the background, the current-line highlight, a selection, and a diff background
-— because a color that passes on pure black can still fail inside a selection.
-Alpha is composited before measuring: `#FF66CAA3` is 64% opacity, and what
-reaches the eye is much darker than the swatch suggests.
+The contrast check is the one that usually decides a modern-theme color. It
+measures every `tokenColors` and `semanticTokenColors` foreground against all
+editor surfaces it can land on — including the current-line highlight,
+selection, diff and merge backgrounds — because a color that passes on pure
+black can still fail inside a selection. Alpha is composited before measuring:
+`#FF66CAA3` is 64% opacity, and what reaches the eye is much darker than the
+swatch suggests. Classic is measured too; use `node scripts/check-contrast.js
+--verbose` for its individual results, while its known legacy failures remain
+non-blocking.
 
 There is very little headroom. The darkest token in the theme, the `#FF2DBE`
 accent, sits at 4.6:1 inside a selection against a 4.5:1 floor. A change that

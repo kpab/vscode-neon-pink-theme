@@ -25,8 +25,7 @@
     "panel.background": "#000000",
     "panel.border": "#33001A",
     "minimap.background": "#00000000",
-    "badge.background": "#FF2DBE",
-    "contrastBorder": "#FF2DBE33"
+    "badge.background": "#FF2DBE"
   },
   "tokenColors": [
     {

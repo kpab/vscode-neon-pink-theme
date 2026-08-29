@@ -39,32 +39,34 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 | Language-specific scopes (HTML/JSX, CSS, Markdown, JSON, YAML, shell, regex) | ✅ Defined |
 | Semantic highlighting (`readonly`, `defaultLibrary`, `deprecated` and the standard token types) | ✅ Enabled |
 | Soft and Dimmed variants, generated from the base theme and measured like it | ✅ Defined |
-| Classic — the 0.0.1 palette, frozen byte-for-byte ([#24](https://github.com/kpab/vscode-neon-pink-theme/issues/24)) | ✅ Frozen |
-| Screenshots of every one of the above, taken in a real VS Code window | ✅ In the README |
+| Screenshots of Neon Pink Dark, Soft and Dimmed, taken in a real VS Code window | ✅ In the README |
+| Classic — the corrected 0.0.1 palette snapshot ([#24](https://github.com/kpab/vscode-neon-pink-theme/issues/24)) | ✅ Frozen and hash-checked |
 | CI — structure, staleness and contrast on every push and pull request; a `v*` tag publishes | ✅ Automated |
 
-**Accessibility note.** Every text color in every variant meets WCAG AA (4.5:1) against the surface it actually renders on — not only the background, but also the selection, the current-line highlight and both sides of a diff, which raise the floor luminance and cost roughly 1.3× of the ratio. The tightest case is a keyword inside a diff or a selection: 4.63:1 in Neon Pink Dark, 4.58:1 in Soft, 4.57:1 in Dimmed. On the plain background the same keyword is 6.4:1, comments are 6.8:1, functions 7.7:1, strings 10.3:1 and body text 18.0:1. **Classic** is the deliberate exception: it reproduces the 0.0.1 palette from before this work existed, unchanged, so none of these guarantees apply to it.
+**Accessibility note.** Every text color in every modern variant meets WCAG AA (4.5:1) against the surface it actually renders on — not only the background, but also the selection, the current-line highlight and both sides of a diff, which raise the floor luminance and cost roughly 1.3× of the ratio. The tightest case is a keyword inside a diff or a selection: 4.63:1 in Neon Pink Dark, 4.58:1 in Soft, 4.57:1 in Dimmed. On the plain background the same keyword is 6.4:1, comments are 6.8:1, functions 7.7:1, strings 10.3:1 and body text 18.0:1. **Classic** is the deliberate exception: it preserves the corrected legacy palette from before this work existed, so none of these guarantees apply to it.
 
-`npm test` runs [`scripts/check-contrast.js`](scripts/check-contrast.js), which measures 995 pairs per theme — every syntax color against the twelve surfaces it can land on (editor, selection, current line, both sides of a diff at line and at word level, the three inline merge conflict regions and the 3-way merge editor), plus every workbench label against its own background — for all three measured themes, 2985 in total, and fails if any drops below threshold. Classic is skipped, and the output says why: bringing it up to AA would erase the look it preserves. Colors carrying alpha are composited first, so the number is what reaches the eye rather than what the swatch suggests. Three decorations are exempt and say so in the output: whitespace markers, indent guides and the diff editor's diagonal fill are meant to stay faint.
+`npm test` runs [`scripts/check-contrast.js`](scripts/check-contrast.js), which measures 995 pairs per modern theme — every syntax color against the twelve surfaces it can land on (editor, selection, current line, both sides of a diff at line and at word level, the three inline merge conflict regions and the 3-way merge editor), plus every workbench label against its own background — and fails if any of those three themes drops below threshold. Classic is also measured, but its known legacy failures are reported as non-blocking; run the script with `--verbose` to inspect every result. Colors carrying alpha are composited first, so the number is what reaches the eye rather than what the swatch suggests. Three decorations are exempt and say so in the output: whitespace markers, indent guides and the diff editor's diagonal fill are meant to stay faint.
 
 ## 🎚️ Variants
 
-The extension contributes four themes. The first three are the same theme — same hues, same meanings, same rules — at three intensities, so switching is a comfort decision rather than a new theme to learn. The fourth is a snapshot: the palette exactly as it shipped in 0.0.1.
+The extension contributes four themes. The first three are the same theme — same hues, same meanings, same rules — at three intensities, so switching is a comfort decision rather than a new theme to learn. The fourth is a corrected snapshot of the 0.0.1 palette.
 
 | Theme | Background | Saturation | Use it when |
 |---|---|---|---|
 | **Neon Pink Dark** | `#000000` | 100% | You want maximum contrast and the full neon look |
 | **Neon Pink Dark Soft** | `#12000A` | 80% | Your panel is OLED, or the pure-black edge feels harsh |
 | **Neon Pink Dimmed** | `#0D0008` | 60% | Long sessions, bright rooms, or you find full saturation tiring |
-| **Neon Pink Dark Classic** | `#000000` | 100% | You miss the 0.0.1 look — a few pink accents over VS Code's own defaults |
+| **Neon Pink Dark Classic** | `#000000` | — (snapshot) | You miss the 0.0.1 look — a few pink accents over VS Code's own defaults |
 
 Pick one with `Ctrl+K Ctrl+T` / `Cmd+K Cmd+T` — all four appear in the list after a single install.
 
-![The same file in all three variants](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/variants.png)
+The comparison below shows the three modern intensity variants; Classic does not yet have a dedicated screenshot.
+
+![The same file in the three modern intensity variants](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/variants.png)
 
 **Why lift the background at all?** High-saturation magenta on `#000000` smears visibly while scrolling on OLED panels, because the pixels are switching fully off and back on. A background a few points above black keeps them lit and the smearing stops. It also stops the background from disappearing entirely in bright ambient light, where pure black reads as a hole rather than a surface.
 
-**How the variants are built.** `themes/neon-pink-dark-color-theme.json` is the only hand-maintained theme. Soft and Dimmed are generated from it by [`scripts/build-themes.js`](scripts/build-themes.js) and committed, so the extension stays dependency-free at install time while three copies of the palette cannot drift apart — `npm test` regenerates them and fails if what is on disk differs. The transform is three steps:
+**How the variants are built.** `themes/neon-pink-dark-color-theme.json` is the hand-maintained modern base. Soft and Dimmed are generated from it by [`scripts/build-themes.js`](scripts/build-themes.js) and committed, so the extension stays dependency-free at install time while three copies of the palette cannot drift apart — `npm test` regenerates them and fails if what is on disk differs. Classic is maintained separately as the hash-checked snapshot described below. The transform is three steps:
 
 1. **Desaturation at constant luminance.** Each color is pulled toward the gray of its own lightness, then scaled back to the relative luminance it started with. Contrast depends on luminance alone, so this step cannot cost a single ratio.
 2. **Background lift.** Black becomes the variant's base tint, and the rest of the dark surface ramp is lifted by a decreasing amount. This is the step that costs contrast.
@@ -72,7 +74,7 @@ Pick one with `Ctrl+K Ctrl+T` / `Cmd+K Cmd+T` — all four appear in the list af
 
 What that leaves is the surfaces lifted *more* than the editor background, a selection or a changed word in a diff, which end up a few hundredths below where they started. That is why every variant is measured in full rather than assumed correct: 4.63:1 at the tightest in the base theme, 4.58:1 in Soft, 4.57:1 in Dimmed.
 
-**Classic is not a variant — it is a snapshot.** Requested in [#24](https://github.com/kpab/vscode-neon-pink-theme/issues/24): the theme as it shipped in 0.0.1, byte-for-byte, under its own name. It sets only 27 workbench colors and leaves everything else to VS Code's stock Dark+ — the bright blue Commit button included — which is exactly the subtle look people ask it back for. It is frozen on purpose: it predates the contrast work, `npm test` skips it and says so, and it will not change when the base theme does.
+**Classic is not a variant — it is a corrected snapshot.** Requested in [#24](https://github.com/kpab/vscode-neon-pink-theme/issues/24), it preserves the 0.0.1 palette under its own name, except for the old `contrastBorder` entry. VS Code ignores that key's alpha and rendered it as an opaque pink border around the workbench, so the already-diagnosed regression is not restored. Classic sets 24 workbench colors and leaves everything else to VS Code's stock Dark+ — the bright blue Commit button included — which is the subtle look people ask back for. Its file is hash-checked to prevent accidental edits. Contrast is audited and reported, but its legacy failures are non-blocking because fixing them would change the look it preserves.
 
 > A **light** variant is deliberately not here. Neon pink on white is a different design problem — the accents have to become darker rather than calmer, and the five-hue palette exception would need re-deriving from scratch — so it belongs in its own milestone rather than bundled with a desaturation pass.
 
