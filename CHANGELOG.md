@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- README badges now use the theme's own palette instead of shields.io's named colors. The accent, numbers, strings and types pinks carry the four badges, on the same pure black label the theme uses as its background, so the row at the top of the page reads as part of the theme rather than as generic defaults
+
 ## [1.0.0] - 2026-07-29
 
 The two things the listing was missing. v0.3.0 finished the colors and v0.4.0 finished the variants; what was left was a Marketplace page asking people to install a theme they could not see, and a repository where nothing checked the theme before it shipped. Both are closed here, which is what makes this 1.0.0 rather than 0.5.0 — not new colors, but the point where the theme is complete, measured, visible, and kept that way without anyone remembering to.

@@ -6,9 +6,9 @@
 
 Transform your VS Code into a futuristic cyberpunk environment with pure black backgrounds and vibrant neon pink highlights. Perfect for developers who want their editor to match the aesthetic of late-night coding sessions in a neon-lit cityscape.
 
-![Theme Type](https://img.shields.io/badge/theme-dark-black?style=flat-square)
-![VS Code](https://img.shields.io/badge/VS%20Code-%5E1.80.0-blue?style=flat-square)
-![License](https://img.shields.io/badge/license-MIT-pink?style=flat-square)
+![Theme Type](https://img.shields.io/badge/theme-dark-FF55C3?style=flat-square&labelColor=000000)
+![VS Code](https://img.shields.io/badge/VS%20Code-%5E1.80.0-FF8CF0?style=flat-square&labelColor=000000)
+![License](https://img.shields.io/badge/license-MIT-FF9AD6?style=flat-square&labelColor=000000)
 
 ## ✨ Features
 
