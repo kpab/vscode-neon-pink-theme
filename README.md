@@ -1,17 +1,34 @@
-![Neon Pink Dark — a Visual Studio Code theme](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/banner.png)
+<div align="center">
 
-# Neon Pink Dark - VS Code Theme
+<a href="https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark">
+  <img src="https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/banner.png" alt="Neon Pink Dark — a Visual Studio Code theme" width="100%">
+</a>
 
-**A cyberpunk-inspired dark theme with neon pink accents for Visual Studio Code**
+<p>
+  <b>A cyberpunk-inspired dark theme with neon pink accents for Visual Studio Code.</b><br>
+  Pure black, three intensities, and every color measured — 2985 pairs, none below WCAG AA.
+</p>
 
-> English | [日本語](README.ja.md)
+<p>
+  <a href="https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark"><img alt="Marketplace version" src="https://vsmarketplacebadges.dev/version-short/kpab.neon-pink-dark.svg?style=for-the-badge&color=FF2DBE&labelColor=000000"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark"><img alt="Marketplace installs" src="https://vsmarketplacebadges.dev/installs-short/kpab.neon-pink-dark.svg?style=for-the-badge&color=FF55C3&labelColor=000000"></a>
+  <a href="https://github.com/kpab/vscode-neon-pink-theme/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/kpab/vscode-neon-pink-theme?style=for-the-badge&color=FF8CF0&labelColor=000000&logo=github&logoColor=FFFFFF"></a>
+  <a href="#-current-scope"><img alt="Contrast: WCAG AA on every surface" src="https://img.shields.io/badge/contrast-WCAG%20AA-3FE0A0?style=for-the-badge&labelColor=000000"></a>
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-FF9AD6?style=for-the-badge&labelColor=000000"></a>
+</p>
+
+<p>
+  <a href="#-installation"><b>Install</b></a> &nbsp;·&nbsp;
+  <a href="#️-screenshots">Screenshots</a> &nbsp;·&nbsp;
+  <a href="#️-variants">Variants</a> &nbsp;·&nbsp;
+  <a href="#-color-palette">Palette</a> &nbsp;·&nbsp;
+  <a href="#️-customization">Customization</a> &nbsp;·&nbsp;
+  <a href="README.ja.md">日本語</a>
+</p>
+
+</div>
 
 Transform your VS Code into a futuristic cyberpunk environment with pure black backgrounds and vibrant neon pink highlights. Perfect for developers who want their editor to match the aesthetic of late-night coding sessions in a neon-lit cityscape.
-
-[![Marketplace installs](https://vsmarketplacebadges.dev/installs-short/kpab.neon-pink-dark.svg?style=flat-square&color=FF2DBE&labelColor=000000)](https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark)
-![Theme Type](https://img.shields.io/badge/theme-dark-FF55C3?style=flat-square&labelColor=000000)
-![VS Code](https://img.shields.io/badge/VS%20Code-%5E1.80.0-FF8CF0?style=flat-square&labelColor=000000)
-![License](https://img.shields.io/badge/license-MIT-FF9AD6?style=flat-square&labelColor=000000)
 
 ## ✨ Features
 
@@ -19,10 +36,10 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 - 💖 **Neon Pink Accents** - `#FF2DBE` as the primary color across the editor and workbench
 - 🌃 **Cyberpunk / Future Neon** - Inspired by neon signs in nighttime cityscapes
 - 🎯 **Layered Highlighting** - 55 TextMate rules plus semantic tokens: generic scopes that apply to every language, with dedicated rules for Markdown, HTML, CSS, JSON and YAML on top
-- 🎚️ **Four Themes** - The original plus **Soft** and **Dimmed** for OLED panels, bright rooms and long sessions, and **Classic**, the 0.0.1 palette kept for those who miss it. One install, [four themes](#-variants)
+- 🎚️ **Four Themes** - The original plus **Soft** and **Dimmed** for OLED panels, bright rooms and long sessions, and **Classic**, the 0.0.1 palette kept for those who miss it. One install, [four themes](#️-variants)
 - 🔧 **Customizable** - Easy to override colors through VS Code settings
 
-> **Every surface is themed as of v0.3.0** — workbench UI, syntax, diagnostics, the diff editor and Git decorations — and every text color meets WCAG AA against the background it actually renders on. **v0.4.0 adds the Soft and Dimmed variants**, which hold that same guarantee. **v1.0.0 is the first release where nothing on that list is outstanding**: the theme is complete, measured, screenshotted, and every check that keeps it that way runs in CI. See [Current Scope](#-current-scope) for what is covered, and the [Roadmap](#-roadmap) for what's next.
+> **Every surface is themed as of v0.3.0** — workbench UI, syntax, diagnostics, the diff editor and Git decorations — and every text color meets WCAG AA against the background it actually renders on. **v0.4.0 adds the Soft and Dimmed variants**, which hold that same guarantee. **v1.0.0 is the first release where nothing on that list is outstanding**: the theme is complete, measured, screenshotted, and every check that keeps it that way runs in CI. See [Current Scope](#-current-scope) for what is covered, and the [Roadmap](#️-roadmap) for what's next.
 
 ## 📊 Current Scope
 
@@ -116,6 +133,8 @@ code .
 
 Every value below is opaque, so the code is what the color measures as — no alpha is composited away.
 
+![The ten colors of Neon Pink Dark, each with its hex code and measured contrast ratio](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/palette.png)
+
 | Element | Color Code | On black | Description |
 |---------|-----------|---------|-------------|
 | 🎯 Primary Accent | `#FF2DBE` | 6.4:1 | Neon pink (keywords, cursor, badges) |
@@ -125,7 +144,7 @@ Every value below is opaque, so the code is what the color measures as — no al
 | 🔢 Numbers | `#FF55C3` | 7.3:1 | Vivid pink for numeric values |
 | 💬 Comments | `#C77AAE` | 6.8:1 | Muted pink, italicized |
 | 🔧 Functions | `#FF5EC4` | 7.7:1 | Medium pink for function names |
-| 📦 Types | `#FF9AD6` | 10.9:1 | Light pink for type definitions |
+| 📦 Types | `#FF9AD6` | 10.8:1 | Light pink for type definitions |
 | ⚙️ Operators | `#FFBEE8` | 13.8:1 | Pale pink for punctuation |
 | #️⃣ Line numbers | `#B3689B` | 5.4:1 | Dim pink, one step below comments |
 
@@ -250,7 +269,19 @@ Tracked as [GitHub milestones](https://github.com/kpab/vscode-neon-pink-theme/mi
 | [v0.4.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/5) | Soft and Dimmed variants for OLED and long sessions |
 | [v1.0.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/6) | Screenshots, CI and release automation |
 
-A light variant is not on this list yet. See the note at the end of [Variants](#-variants) for why it is a separate design problem rather than a fourth intensity.
+A light variant is not on this list yet. See the note at the end of [Variants](#️-variants) for why it is a separate design problem rather than a fourth intensity.
+
+## ⭐ Star the Repository
+
+<div align="center">
+
+<a href="https://github.com/kpab/vscode-neon-pink-theme"><img alt="Star Neon Pink Dark on GitHub" src="https://img.shields.io/github/stars/kpab/vscode-neon-pink-theme?style=social"></a>
+
+</div>
+
+A theme ships with no telemetry and collects reviews slowly, so the star count is most of what the next person has to go on when they are deciding whether a pink theme is a gimmick or something they can read code in for eight hours. If this one earned a place on your screen, the button above is one click — the same one GitHub puts at the top of the repository page.
+
+If it has not earned that yet, [Issues](https://github.com/kpab/vscode-neon-pink-theme/issues) is the more useful click: the color that reads wrong in your language, the surface the theme misses, the variant you want next.
 
 ## 🤝 Contributing
 
@@ -305,6 +336,13 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-**If you enjoy this theme, please ⭐ star the repository and share it with other developers!**
+<div align="center">
 
-**Enjoy coding in the neon! 💖✨**
+<a href="https://github.com/kpab/vscode-neon-pink-theme"><img alt="Star Neon Pink Dark on GitHub" src="https://img.shields.io/github/stars/kpab/vscode-neon-pink-theme?style=social"></a>
+
+<p>
+  <b>Enjoy coding in the neon 💖✨</b><br>
+  <sub>Star it, share it, or tell me what to fix — all three help the theme find the people who want it.</sub>
+</p>
+
+</div>

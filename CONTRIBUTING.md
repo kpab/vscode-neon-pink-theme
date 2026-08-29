@@ -152,6 +152,22 @@ Uploading the social preview is manual: GitHub has no API for it. Repository
 Settings → General → Social preview → Upload an image, with
 `images/social-preview.png`.
 
+## The palette strip
+
+`images/palette.png` — the picture above the color table in both READMEs — comes
+from `scripts/generate-palette.js`:
+
+```bash
+npm run palette
+```
+
+It reads the ten colors the table lists straight out of the base theme and
+measures each ratio itself, with the same WCAG 2.1 luminance
+`scripts/check-contrast.js` uses. Nothing in it is typed by hand, so a palette
+change is one command away from being visible — but it is not part of `npm
+test`, which checks themes rather than documentation. Regenerate it in the same
+commit that moves a color, and update the ratio in the table to match.
+
 ## Pull requests
 
 1. Branch from `main`.

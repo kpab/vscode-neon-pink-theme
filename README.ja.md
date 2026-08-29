@@ -1,16 +1,34 @@
-![Neon Pink Dark — VS Code のカラーテーマ](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/banner.png)
+<div align="center">
 
-# Neon Pink Dark Theme
+<a href="https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark">
+  <img src="https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/banner.png" alt="Neon Pink Dark — VS Code のカラーテーマ" width="100%">
+</a>
 
-**Cyberpunk スタイルの VS Code ダークテーマ**
+<p>
+  <b>Cyberpunk スタイルの VS Code ダークテーマ。</b><br>
+  純黒の背景、3 段階の強さ、そして 2985 組すべてを実測して WCAG AA を下回らない配色。
+</p>
 
-> [English](README.md) | 日本語
+<p>
+  <a href="https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark"><img alt="Marketplace のバージョン" src="https://vsmarketplacebadges.dev/version-short/kpab.neon-pink-dark.svg?style=for-the-badge&color=FF2DBE&labelColor=000000"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark"><img alt="Marketplace のインストール数" src="https://vsmarketplacebadges.dev/installs-short/kpab.neon-pink-dark.svg?style=for-the-badge&color=FF55C3&labelColor=000000"></a>
+  <a href="https://github.com/kpab/vscode-neon-pink-theme/stargazers"><img alt="GitHub の Star 数" src="https://img.shields.io/github/stars/kpab/vscode-neon-pink-theme?style=for-the-badge&color=FF8CF0&labelColor=000000&logo=github&logoColor=FFFFFF"></a>
+  <a href="#-対応状況"><img alt="コントラスト: すべての面で WCAG AA" src="https://img.shields.io/badge/contrast-WCAG%20AA-3FE0A0?style=for-the-badge&labelColor=000000"></a>
+  <a href="LICENSE"><img alt="ライセンス: MIT" src="https://img.shields.io/badge/license-MIT-FF9AD6?style=for-the-badge&labelColor=000000"></a>
+</p>
+
+<p>
+  <a href="#-インストール方法"><b>インストール</b></a> &nbsp;·&nbsp;
+  <a href="#-スクリーンショット">スクリーンショット</a> &nbsp;·&nbsp;
+  <a href="#️-バリアント">バリアント</a> &nbsp;·&nbsp;
+  <a href="#-カラーパレット">パレット</a> &nbsp;·&nbsp;
+  <a href="#️-カスタマイズ">カスタマイズ</a> &nbsp;·&nbsp;
+  <a href="README.md">English</a>
+</p>
+
+</div>
 
 ブラック背景に蛍光ピンクが映えるネオン系カラースキーム。夜の街のネオンサインをイメージした未来的なテーマです。
-
-[![Marketplace installs](https://vsmarketplacebadges.dev/installs-short/kpab.neon-pink-dark.svg?style=flat-square&color=FF2DBE&labelColor=000000)](https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark)
-![Theme Type](https://img.shields.io/badge/theme-dark-FF55C3?style=flat-square&labelColor=000000)
-![VS Code](https://img.shields.io/badge/VS%20Code-%5E1.80.0-FF8CF0?style=flat-square&labelColor=000000)
 
 ## ✨ 特徴
 
@@ -18,10 +36,10 @@
 - 💖 **蛍光ピンクアクセント** - メインカラー `#FF2DBE` をエディタと UI 全体に適用
 - 🌃 **Cyberpunk / Future Neon** - 夜の街のネオンサインをイメージ
 - 🎯 **多層のハイライト** - 55 の TextMate ルールとセマンティックトークン。すべての言語に効く汎用スコープの上に、Markdown・HTML・CSS・JSON・YAML 向けの専用ルールを重ねています
-- 🎚️ **4 つのテーマ** - オリジナルに加えて、OLED・明るい部屋・長時間作業向けの **Soft** と **Dimmed**、そして 0.0.1 のパレットを懐かしむ人のための **Classic**。1 回のインストールで[4 つのテーマ](#-バリアント)が入ります
+- 🎚️ **4 つのテーマ** - オリジナルに加えて、OLED・明るい部屋・長時間作業向けの **Soft** と **Dimmed**、そして 0.0.1 のパレットを懐かしむ人のための **Classic**。1 回のインストールで[4 つのテーマ](#️-バリアント)が入ります
 - 🔧 **カスタマイズ可能** - VS Code の設定から個別に色を上書きできます
 
-> **v0.3.0 ですべての面が定義済みになりました。** ワークベンチの UI、シンタックス、診断表示、差分エディタ、Git 装飾のいずれもテーマ側で色を持ち、すべてのテキストカラーが実際に描画される背景に対して WCAG AA を満たしています。**v0.4.0 では Soft / Dimmed バリアントを追加**し、同じ基準をそのまま満たしています。**v1.0.0 は、この一覧に積み残しがなくなった最初のリリースです。** テーマとして完成し、測定され、スクリーンショットも揃い、その状態を保つためのチェックはすべて CI で回っています。カバー範囲は[対応状況](#-対応状況)を、今後の予定は[ロードマップ](#-ロードマップ)をご覧ください。
+> **v0.3.0 ですべての面が定義済みになりました。** ワークベンチの UI、シンタックス、診断表示、差分エディタ、Git 装飾のいずれもテーマ側で色を持ち、すべてのテキストカラーが実際に描画される背景に対して WCAG AA を満たしています。**v0.4.0 では Soft / Dimmed バリアントを追加**し、同じ基準をそのまま満たしています。**v1.0.0 は、この一覧に積み残しがなくなった最初のリリースです。** テーマとして完成し、測定され、スクリーンショットも揃い、その状態を保つためのチェックはすべて CI で回っています。カバー範囲は[対応状況](#-対応状況)を、今後の予定は[ロードマップ](#️-ロードマップ)をご覧ください。
 
 ## 📊 対応状況
 
@@ -108,6 +126,8 @@ code .
 
 以下はすべて不透明な値です。アルファ合成は挟まないので、カラーコードがそのまま実測値になります。
 
+![Neon Pink Dark の 10 色。それぞれのカラーコードと実測コントラスト比つき](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/palette.png)
+
 | 用途 | カラーコード | 純黒に対する比 | 説明 |
 |------|-------------|---------------|------|
 | 🎯 メインアクセント | `#FF2DBE` | 6.4:1 | 蛍光ピンク（キーワード、カーソル） |
@@ -117,7 +137,7 @@ code .
 | 🔢 数値 | `#FF55C3` | 7.3:1 | ビビッドピンク |
 | 💬 コメント | `#C77AAE` | 6.8:1 | くすんだピンク（イタリック） |
 | 🔧 関数 | `#FF5EC4` | 7.7:1 | ミディアムピンク |
-| 📦 型定義 | `#FF9AD6` | 10.9:1 | ライトピンク |
+| 📦 型定義 | `#FF9AD6` | 10.8:1 | ライトピンク |
 | ⚙️ 記号・区切り | `#FFBEE8` | 13.8:1 | ペールピンク |
 | #️⃣ 行番号 | `#B3689B` | 5.4:1 | コメントより一段暗いピンク |
 
@@ -201,7 +221,7 @@ code .
 | [v0.4.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/5) | OLED や長時間作業向けの Soft / Dimmed バリアント |
 | [v1.0.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/6) | スクリーンショット、CI、リリース自動化 |
 
-ライトバリアントはまだこの一覧にありません。理由は[バリアント](#-バリアント)の末尾の補足をご覧ください。
+ライトバリアントはまだこの一覧にありません。理由は[バリアント](#️-バリアント)の末尾の補足をご覧ください。
 
 ## ⚙️ カスタマイズ
 
@@ -223,6 +243,18 @@ code .
 ```
 
 角括弧の中はテーマ名なので、`[Neon Pink Dark]` は Soft・Dimmed・Classic には効きません。すべてに効かせるには `"[Neon Pink Dark][Neon Pink Dark Soft][Neon Pink Dimmed][Neon Pink Dark Classic]"` のように並べて書きます。
+
+## ⭐ Star をお願いします
+
+<div align="center">
+
+<a href="https://github.com/kpab/vscode-neon-pink-theme"><img alt="Neon Pink Dark に GitHub で Star をつける" src="https://img.shields.io/github/stars/kpab/vscode-neon-pink-theme?style=social"></a>
+
+</div>
+
+テーマにはテレメトリがなく、レビューもそう集まりません。つまり Star の数が、次に見た人が「ピンクのテーマはネタなのか、8 時間コードを読める道具なのか」を判断するときの、ほぼ唯一の手がかりになります。このテーマが画面に居座る価値を示せたなら、上のボタン（GitHub のリポジトリページ右上にあるものと同じです）をひと押しお願いします。
+
+まだそこまでではない場合は、[Issue](https://github.com/kpab/vscode-neon-pink-theme/issues) のほうが役に立ちます。自分の言語で読みにくい色、テーマが拾えていない箇所、次に欲しいバリアント — どれでも歓迎です。
 
 ## 🤝 コントリビューション
 
@@ -254,4 +286,13 @@ MIT License - 詳細は [LICENSE](LICENSE) をご覧ください。
 
 ---
 
-**Enjoy coding in the neon! 💖✨**
+<div align="center">
+
+<a href="https://github.com/kpab/vscode-neon-pink-theme"><img alt="Neon Pink Dark に GitHub で Star をつける" src="https://img.shields.io/github/stars/kpab/vscode-neon-pink-theme?style=social"></a>
+
+<p>
+  <b>Enjoy coding in the neon 💖✨</b><br>
+  <sub>Star、共有、あるいは直してほしい点の報告 — どれもこのテーマを必要な人に届けてくれます。</sub>
+</p>
+
+</div>
