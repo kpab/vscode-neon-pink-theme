@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- The **Neon Pink Dark Classic** theme: the 0.0.1 palette, byte-for-byte, under its own name. It sets 27 workbench colors and leaves everything else to VS Code's stock Dark+ — the bright blue Commit button included — which is the subtle look that was asked back for. It is a frozen snapshot rather than a fourth intensity: `scripts/build-themes.js` does not derive it, and `scripts/check-contrast.js` skips it and prints why, since it predates the v0.3.0 contrast work on purpose ([#24])
 - A Marketplace installs badge at the top of both READMEs, linking to the listing. It comes from `vsmarketplacebadges.dev` rather than shields.io, whose `visual-studio-marketplace/*` badges are retired and now render the words "retired badge" where the number should be
 
 ### Changed
@@ -228,3 +229,4 @@ The two things the listing was missing. v0.3.0 finished the colors and v0.4.0 fi
 [#12]: https://github.com/kpab/vscode-neon-pink-theme/issues/12
 [#13]: https://github.com/kpab/vscode-neon-pink-theme/issues/13
 [#14]: https://github.com/kpab/vscode-neon-pink-theme/issues/14
+[#24]: https://github.com/kpab/vscode-neon-pink-theme/issues/24
