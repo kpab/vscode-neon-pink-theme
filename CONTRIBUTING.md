@@ -113,6 +113,29 @@ viewBox, so anything larger is upscaling a design drawn for that size. The two
 `<animate>` elements in the SVG are ignored by rasterizers: the PNG is the first
 frame, with the main circle at full opacity and the center dot at `r=8`.
 
+## The banner
+
+`images/banner.png` and `images/social-preview.png` are generated from
+`scripts/generate-banner.js`:
+
+```bash
+npm run banner
+```
+
+Both come out of one 1280-wide composition — the README hero at 400px tall, the
+GitHub social preview at 640px with the same artwork centered — so a change is
+made once and lands in both. Every color in it is read from
+`themes/neon-pink-dark-color-theme.json`, so the banner follows the palette
+instead of drifting away from it; a token color change shows up on the next run.
+
+The PNGs are committed. The text is rendered with whatever font the rasterizer
+resolves, so generating them at install time would produce a different picture
+on a machine without Helvetica.
+
+Uploading the social preview is manual: GitHub has no API for it. Repository
+Settings → General → Social preview → Upload an image, with
+`images/social-preview.png`.
+
 ## Pull requests
 
 1. Branch from `main`.
