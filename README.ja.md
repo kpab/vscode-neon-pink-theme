@@ -6,6 +6,7 @@
 
 ブラック背景に蛍光ピンクが映えるネオン系カラースキーム。夜の街のネオンサインをイメージした未来的なテーマです。
 
+[![Marketplace installs](https://vsmarketplacebadges.dev/installs-short/kpab.neon-pink-dark.svg?style=flat-square&color=FF2DBE&labelColor=000000)](https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark)
 ![Theme Type](https://img.shields.io/badge/theme-dark-FF55C3?style=flat-square&labelColor=000000)
 ![VS Code](https://img.shields.io/badge/VS%20Code-%5E1.80.0-FF8CF0?style=flat-square&labelColor=000000)
 

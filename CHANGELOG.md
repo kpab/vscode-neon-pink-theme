@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- A Marketplace installs badge at the top of both READMEs, linking to the listing. It comes from `vsmarketplacebadges.dev` rather than shields.io, whose `visual-studio-marketplace/*` badges are retired and now render the words "retired badge" where the number should be
+
 ### Changed
 - README badges now use the theme's own palette instead of shields.io's named colors. The accent, numbers, strings and types pinks carry the four badges, on the same pure black label the theme uses as its background, so the row at the top of the page reads as part of the theme rather than as generic defaults
 
