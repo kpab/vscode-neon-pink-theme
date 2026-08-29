@@ -48,9 +48,12 @@ const SWATCH_H = 72;
 const ROW_TOP = [86, 250];
 
 /**
- * The ten colors the README table lists, in the order it lists them. `scope` is
- * a TextMate scope, `key` a workbench color. Nothing is duplicated: the
- * description stays in the table, the value stays in the theme.
+ * The ten colors the README table lists, under the names the table gives them.
+ * The order is the strip's own rather than the table's: the inks first, the
+ * surface they sit on last, since a black swatch reads as a hole in the grid
+ * anywhere but at the end. `scope` is a TextMate scope, `key` a workbench
+ * color. Nothing is duplicated: the description stays in the table, the value
+ * stays in the theme.
  */
 const ENTRIES = [
   { label: 'Accent', scope: 'keyword' },
@@ -60,7 +63,7 @@ const ENTRIES = [
   { label: 'Functions', scope: 'entity.name.function' },
   { label: 'Types', scope: 'entity.name.type' },
   { label: 'Comments', scope: 'comment' },
-  { label: 'Punctuation', scope: 'punctuation' },
+  { label: 'Operators', scope: 'punctuation' },
   { label: 'Line numbers', key: 'editorLineNumber.foreground' },
   { label: 'Background', key: 'editor.background' },
 ];
