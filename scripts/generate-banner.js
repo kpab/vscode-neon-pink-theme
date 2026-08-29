@@ -11,12 +11,12 @@
  * draws it, which is unreadable at card scale.
  *
  * The artwork is generated rather than drawn by hand so the palette stays a
- * single source of truth. Every color below is read from the base theme's own
- * token colors, so a change to `themes/neon-pink-dark-color-theme.json` shows
- * up in the banner on the next `npm run banner` instead of drifting away from
- * it. The mock editor on the right is colored with the same values the theme
- * assigns to those scopes, so the banner is a screenshot in miniature rather
- * than an illustration of one.
+ * single source of truth. Every color below is read from the theme files — the
+ * base theme for the artwork, each variant theme for its chip — so a change
+ * under `themes/` shows up in the banner on the next `npm run banner` instead
+ * of drifting away from it. The mock editor on the right is colored with the
+ * same values the theme assigns to those scopes, so the banner is a screenshot
+ * in miniature rather than an illustration of one.
  *
  * Both outputs share one 1280x400 composition. The social preview is the same
  * artwork on a 1280x640 canvas — GitHub's recommended size — with the content
@@ -34,6 +34,8 @@ const path = require('path');
 
 const ROOT = path.join(__dirname, '..');
 const THEME = path.join(ROOT, 'themes', 'neon-pink-dark-color-theme.json');
+const SOFT = path.join(ROOT, 'themes', 'neon-pink-dark-soft-color-theme.json');
+const DIMMED = path.join(ROOT, 'themes', 'neon-pink-dimmed-color-theme.json');
 const OUT_DIR = path.join(ROOT, 'images');
 
 const WIDTH = 1280;
@@ -80,7 +82,9 @@ function palette(theme) {
     property: tokenColor(theme, 'support.type.property-name.json'),
     variable: tokenColor(theme, 'variable'),
     operator: tokenColor(theme, 'keyword.operator'),
+    regexp: tokenColor(theme, 'string.regexp'),
     lineNumber: theme.colors['editorLineNumber.foreground'],
+    panel: theme.colors['tab.activeBackground'],
   };
 }
 
@@ -103,10 +107,10 @@ function escapeXml(s) {
 }
 
 /** One code line: line number in the gutter, tokens flowing from the indent. */
-function renderCodeLine(line, index, x, y, size) {
+function renderCodeLine(line, index, x, y, size, p) {
   const [indent, ...tokens] = line;
   const gutter = `<text x="${x - 22}" y="${y}" font-family="${MONO}" font-size="${size}" `
-    + `fill="${'#B3689B'}" opacity="0.7" text-anchor="end">${index + 1}</text>`;
+    + `fill="${p.lineNumber}" opacity="0.7" text-anchor="end">${index + 1}</text>`;
   const spans = tokens
     .filter(([text]) => text.length > 0)
     .map(([text, fill]) => `<tspan fill="${fill}">${escapeXml(text)}</tspan>`)
@@ -127,8 +131,8 @@ function chip(x, y, label, dot, p) {
     </g>`;
 }
 
-function buildSvg(theme, height) {
-  const p = palette(theme);
+function buildSvg(themes, height) {
+  const p = palette(themes.base);
   const top = (height - CONTENT_HEIGHT) / 2;
 
   // The horizon grid sits on the canvas rather than the content, so it stays at
@@ -148,7 +152,7 @@ function buildSvg(theme, height) {
   const codeX = 760;
   const codeTop = top + 118;
   const code = codeLines(p)
-    .map((line, i) => renderCodeLine(line, i, codeX, codeTop + i * 26, 15))
+    .map((line, i) => renderCodeLine(line, i, codeX, codeTop + i * 26, 15, p))
     .join('\n      ');
 
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDTH}" height="${height}" viewBox="0 0 ${WIDTH} ${height}">
@@ -206,13 +210,13 @@ function buildSvg(theme, height) {
 
   <!-- Variant chips -->
   ${chip(184, top + 290, 'Dark', p.accent, p)}
-  ${chip(282, top + 290, 'Soft', '#F646C0', p)}
-  ${chip(380, top + 290, 'Dimmed', '#E25DB9', p)}
-  ${chip(486, top + 290, 'WCAG AA', '#7DFFC6', p)}
+  ${chip(282, top + 290, 'Soft', tokenColor(themes.soft, 'keyword'), p)}
+  ${chip(380, top + 290, 'Dimmed', tokenColor(themes.dimmed, 'keyword'), p)}
+  ${chip(486, top + 290, 'WCAG AA', p.regexp, p)}
 
   <!-- Mock editor -->
   <g>
-    <rect x="700" y="${top + 52}" width="500" height="296" rx="14" fill="#0A0006" stroke="${p.accent}" stroke-width="1" opacity="0.9"/>
+    <rect x="700" y="${top + 52}" width="500" height="296" rx="14" fill="${p.panel}" stroke="${p.accent}" stroke-width="1" opacity="0.9"/>
     <rect x="700" y="${top + 52}" width="500" height="36" rx="14" fill="${p.accent}" opacity="0.10"/>
     <rect x="700" y="${top + 74}" width="500" height="14" fill="${p.accent}" opacity="0.10"/>
     <line x1="700" y1="${top + 88}" x2="1200" y2="${top + 88}" stroke="${p.accent}" stroke-width="1" opacity="0.35"/>
@@ -234,10 +238,14 @@ function main() {
     process.exit(1);
   }
 
-  const theme = JSON.parse(fs.readFileSync(THEME, 'utf8'));
+  const themes = {
+    base: JSON.parse(fs.readFileSync(THEME, 'utf8')),
+    soft: JSON.parse(fs.readFileSync(SOFT, 'utf8')),
+    dimmed: JSON.parse(fs.readFileSync(DIMMED, 'utf8')),
+  };
 
   const writes = OUTPUTS.map(({ file, height }) => {
-    const svg = buildSvg(theme, height);
+    const svg = buildSvg(themes, height);
     const out = path.join(OUT_DIR, file);
     return sharp(Buffer.from(svg), { density: 72 * SUPERSAMPLE })
       .resize(WIDTH, height)
