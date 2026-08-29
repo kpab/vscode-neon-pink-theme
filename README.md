@@ -1,3 +1,5 @@
+![Neon Pink Dark — a Visual Studio Code theme](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/banner.png)
+
 # Neon Pink Dark - VS Code Theme
 
 **A cyberpunk-inspired dark theme with neon pink accents for Visual Studio Code**

@@ -1,3 +1,5 @@
+![Neon Pink Dark — VS Code のカラーテーマ](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/banner.png)
+
 # Neon Pink Dark Theme
 
 **Cyberpunk スタイルの VS Code ダークテーマ**

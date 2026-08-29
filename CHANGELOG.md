@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - The **Neon Pink Dark Classic** theme: the corrected 0.0.1 palette under its own name. It preserves the original look but omits the old `contrastBorder`, whose ignored alpha would restore the opaque pink workbench border removed as a bug in 0.0.2. Its 24 workbench colors leave everything else to VS Code's stock Dark+ — the bright blue Commit button included. It is a frozen, hash-checked snapshot rather than a fourth intensity; contrast is still audited, with its known legacy failures reported as non-blocking ([#24])
+- A generated banner at the top of both READMEs, and a GitHub social preview card. `scripts/generate-banner.js` (`npm run banner`) draws both from one composition and reads every color out of the base theme, so the artwork cannot drift from the palette. The two places a theme is judged before anything else — the top of the README and the card GitHub unfurls when the repository is linked — were showing a heading and a gray placeholder; the screenshots could not fill either, since they show the theme at VS Code's own scale, which is unreadable on a card
 - A Marketplace installs badge at the top of both READMEs, linking to the listing. It comes from `vsmarketplacebadges.dev` rather than shields.io, whose `visual-studio-marketplace/*` badges are retired and now render the words "retired badge" where the number should be
 
 ### Changed
