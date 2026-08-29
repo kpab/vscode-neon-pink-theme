@@ -1,0 +1,83 @@
+{
+  "name": "Neon Pink Dark Classic",
+  "type": "dark",
+  "colors": {
+    "editor.background": "#000000",
+    "editor.foreground": "#FFE6FF",
+    "editorCursor.foreground": "#FF2DBE",
+    "editor.lineHighlightBackground": "#33001A",
+    "editor.selectionBackground": "#660033",
+    "editor.inactiveSelectionBackground": "#33001A",
+    "editorLineNumber.foreground": "#FF66CCAA",
+    "editorLineNumber.activeForeground": "#FF99E6",
+    "sideBar.background": "#000000",
+    "sideBar.foreground": "#FFBEE8",
+    "statusBar.background": "#1A0010",
+    "statusBar.foreground": "#FF76D6",
+    "activityBar.background": "#000000",
+    "activityBar.foreground": "#FF4FB3",
+    "tab.activeBackground": "#0A0005",
+    "tab.inactiveBackground": "#000000",
+    "tab.activeForeground": "#FF89D6",
+    "tab.inactiveForeground": "#82456A",
+    "titleBar.activeBackground": "#000000",
+    "titleBar.activeForeground": "#FF70C8",
+    "panel.background": "#000000",
+    "panel.border": "#33001A",
+    "minimap.background": "#00000000",
+    "badge.background": "#FF2DBE",
+    "contrastBorder": "#FF2DBE33"
+  },
+  "tokenColors": [
+    {
+      "scope": ["keyword", "storage"],
+      "settings": {
+        "foreground": "#FF2DBE",
+        "fontStyle": ""
+      }
+    },
+    {
+      "scope": ["string"],
+      "settings": {
+        "foreground": "#FF8CF0"
+      }
+    },
+    {
+      "scope": ["variable", "parameter"],
+      "settings": {
+        "foreground": "#FFD6FF"
+      }
+    },
+    {
+      "scope": ["constant.numeric"],
+      "settings": {
+        "foreground": "#FF55C3"
+      }
+    },
+    {
+      "scope": ["entity.name.function"],
+      "settings": {
+        "foreground": "#FF5EC4"
+      }
+    },
+    {
+      "scope": ["entity.name.type", "support.type"],
+      "settings": {
+        "foreground": "#FF9AD6"
+      }
+    },
+    {
+      "scope": ["comment"],
+      "settings": {
+        "foreground": "#FF66CAA3",
+        "fontStyle": "italic"
+      }
+    },
+    {
+      "scope": ["punctuation", "delimiter"],
+      "settings": {
+        "foreground": "#FFBEE8"
+      }
+    }
+  ]
+}

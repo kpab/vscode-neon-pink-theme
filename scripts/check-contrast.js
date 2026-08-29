@@ -52,6 +52,19 @@ const EXEMPT = {
     'the hatch over lines that do not exist on one side — a fill loud enough for 3:1 reads as content',
 };
 
+/**
+ * Themes that are frozen historical snapshots, with the reason. Classic is the
+ * 0.0.1 palette byte-for-byte (issue #24): it predates the v0.3.0 contrast
+ * work on purpose, and its 27 keys leave everything else to VS Code's Dark+
+ * defaults — which is exactly the look it exists to preserve. Measuring it
+ * would report 103 failures that can only be "fixed" by destroying the theme,
+ * so it is skipped rather than exempted key by key.
+ */
+const FROZEN = {
+  'Neon Pink Dark Classic':
+    'the 0.0.1 palette, kept byte-for-byte — bringing it up to AA would erase the look it preserves',
+};
+
 // ---------------------------------------------------------------------------
 // color math
 // ---------------------------------------------------------------------------
@@ -380,6 +393,11 @@ function main() {
   let totalFailures = 0;
 
   for (const entry of contributedThemes()) {
+    if (FROZEN[entry.label]) {
+      console.log(`— ${entry.label} —`);
+      console.log(`skipped: ${FROZEN[entry.label]}\n`);
+      continue;
+    }
     const theme = JSON.parse(fs.readFileSync(entry.path, 'utf8'));
     const results = measure(theme);
     const failures = results.filter((r) => r.missing || r.ratio < r.min);

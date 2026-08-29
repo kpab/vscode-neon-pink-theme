@@ -64,6 +64,11 @@
         "label": "Neon Pink Dimmed",
         "uiTheme": "vs-dark",
         "path": "./themes/neon-pink-dimmed-color-theme.json"
+      },
+      {
+        "label": "Neon Pink Dark Classic",
+        "uiTheme": "vs-dark",
+        "path": "./themes/neon-pink-dark-classic-color-theme.json"
       }
     ]
   },

@@ -5,9 +5,10 @@
  * Generates the Soft and Dimmed variants from the base theme.
  *
  * `themes/neon-pink-dark-color-theme.json` is the single hand-maintained
- * source. Every other theme in `contributes.themes` is produced from it, so a
- * color added to the base reaches all three variants instead of having to be
- * back-filled twice.
+ * source. The Soft and Dimmed themes in `contributes.themes` are produced from
+ * it, so a color added to the base reaches all three instead of having to be
+ * back-filled twice. (The fourth theme, Classic, is the frozen 0.0.1 snapshot
+ * — issue #24 — and is deliberately not derived from anything.)
  *
  * The base theme leaves almost no contrast headroom on purpose — its darkest
  * token, the `#FF2DBE` accent, measures 4.74:1 inside a selection against a
