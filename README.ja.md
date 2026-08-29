@@ -1,16 +1,34 @@
-![Neon Pink Dark — VS Code のカラーテーマ](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/banner.png)
+<div align="center">
 
-# Neon Pink Dark Theme
+<a href="https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark">
+  <img src="https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/banner.png" alt="Neon Pink Dark — VS Code のカラーテーマ" width="100%">
+</a>
 
-**Cyberpunk スタイルの VS Code ダークテーマ**
+<p>
+  <b>Cyberpunk スタイルの VS Code ダークテーマ。</b><br>
+  純黒の背景、3 段階の強さ、そして 2985 組すべてを実測して WCAG AA を下回らない配色。
+</p>
 
-> [English](README.md) | 日本語
+<p>
+  <a href="https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark"><img alt="Marketplace のバージョン" src="https://vsmarketplacebadges.dev/version-short/kpab.neon-pink-dark.svg?style=for-the-badge&color=FF2DBE&labelColor=000000"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark"><img alt="Marketplace のインストール数" src="https://vsmarketplacebadges.dev/installs-short/kpab.neon-pink-dark.svg?style=for-the-badge&color=FF55C3&labelColor=000000"></a>
+  <a href="https://github.com/kpab/vscode-neon-pink-theme/stargazers"><img alt="GitHub の Star 数" src="https://img.shields.io/github/stars/kpab/vscode-neon-pink-theme?style=for-the-badge&color=FF8CF0&labelColor=000000&logo=github&logoColor=FFFFFF"></a>
+  <a href="#-対応状況"><img alt="コントラスト: すべての面で WCAG AA" src="https://img.shields.io/badge/contrast-WCAG%20AA-3FE0A0?style=for-the-badge&labelColor=000000"></a>
+  <a href="LICENSE"><img alt="ライセンス: MIT" src="https://img.shields.io/badge/license-MIT-FF9AD6?style=for-the-badge&labelColor=000000"></a>
+</p>
+
+<p>
+  <a href="#-インストール方法"><b>インストール</b></a> &nbsp;·&nbsp;
+  <a href="#-スクリーンショット">スクリーンショット</a> &nbsp;·&nbsp;
+  <a href="#️-バリアント">バリアント</a> &nbsp;·&nbsp;
+  <a href="#-カラーパレット">パレット</a> &nbsp;·&nbsp;
+  <a href="#️-カスタマイズ">カスタマイズ</a> &nbsp;·&nbsp;
+  <a href="README.md">English</a>
+</p>
+
+</div>
 
 ブラック背景に蛍光ピンクが映えるネオン系カラースキーム。夜の街のネオンサインをイメージした未来的なテーマです。
-
-[![Marketplace installs](https://vsmarketplacebadges.dev/installs-short/kpab.neon-pink-dark.svg?style=flat-square&color=FF2DBE&labelColor=000000)](https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark)
-![Theme Type](https://img.shields.io/badge/theme-dark-FF55C3?style=flat-square&labelColor=000000)
-![VS Code](https://img.shields.io/badge/VS%20Code-%5E1.80.0-FF8CF0?style=flat-square&labelColor=000000)
 
 ## ✨ 特徴
 

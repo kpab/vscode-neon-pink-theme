@@ -1,17 +1,34 @@
-![Neon Pink Dark — a Visual Studio Code theme](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/banner.png)
+<div align="center">
 
-# Neon Pink Dark - VS Code Theme
+<a href="https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark">
+  <img src="https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/banner.png" alt="Neon Pink Dark — a Visual Studio Code theme" width="100%">
+</a>
 
-**A cyberpunk-inspired dark theme with neon pink accents for Visual Studio Code**
+<p>
+  <b>A cyberpunk-inspired dark theme with neon pink accents for Visual Studio Code.</b><br>
+  Pure black, three intensities, and every color measured — 2985 pairs, none below WCAG AA.
+</p>
 
-> English | [日本語](README.ja.md)
+<p>
+  <a href="https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark"><img alt="Marketplace version" src="https://vsmarketplacebadges.dev/version-short/kpab.neon-pink-dark.svg?style=for-the-badge&color=FF2DBE&labelColor=000000"></a>
+  <a href="https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark"><img alt="Marketplace installs" src="https://vsmarketplacebadges.dev/installs-short/kpab.neon-pink-dark.svg?style=for-the-badge&color=FF55C3&labelColor=000000"></a>
+  <a href="https://github.com/kpab/vscode-neon-pink-theme/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/kpab/vscode-neon-pink-theme?style=for-the-badge&color=FF8CF0&labelColor=000000&logo=github&logoColor=FFFFFF"></a>
+  <a href="#-current-scope"><img alt="Contrast: WCAG AA on every surface" src="https://img.shields.io/badge/contrast-WCAG%20AA-3FE0A0?style=for-the-badge&labelColor=000000"></a>
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-FF9AD6?style=for-the-badge&labelColor=000000"></a>
+</p>
+
+<p>
+  <a href="#-installation"><b>Install</b></a> &nbsp;·&nbsp;
+  <a href="#️-screenshots">Screenshots</a> &nbsp;·&nbsp;
+  <a href="#️-variants">Variants</a> &nbsp;·&nbsp;
+  <a href="#-color-palette">Palette</a> &nbsp;·&nbsp;
+  <a href="#️-customization">Customization</a> &nbsp;·&nbsp;
+  <a href="README.ja.md">日本語</a>
+</p>
+
+</div>
 
 Transform your VS Code into a futuristic cyberpunk environment with pure black backgrounds and vibrant neon pink highlights. Perfect for developers who want their editor to match the aesthetic of late-night coding sessions in a neon-lit cityscape.
-
-[![Marketplace installs](https://vsmarketplacebadges.dev/installs-short/kpab.neon-pink-dark.svg?style=flat-square&color=FF2DBE&labelColor=000000)](https://marketplace.visualstudio.com/items?itemName=kpab.neon-pink-dark)
-![Theme Type](https://img.shields.io/badge/theme-dark-FF55C3?style=flat-square&labelColor=000000)
-![VS Code](https://img.shields.io/badge/VS%20Code-%5E1.80.0-FF8CF0?style=flat-square&labelColor=000000)
-![License](https://img.shields.io/badge/license-MIT-FF9AD6?style=flat-square&labelColor=000000)
 
 ## ✨ Features
 

@@ -12,6 +12,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - A Marketplace installs badge at the top of both READMEs, linking to the listing. It comes from `vsmarketplacebadges.dev` rather than shields.io, whose `visual-studio-marketplace/*` badges are retired and now render the words "retired badge" where the number should be
 
 ### Changed
+- Both README headers are now one centered block: the banner, the one-line pitch, a badge row and a jump list to the sections people actually look for — Install, Screenshots, Variants, Palette, Customization and the other language. What was there before was a heading, a blockquote language switch, a paragraph and four left-aligned badges spread over nine lines, which read as a document rather than as a listing
+- The badge row gained the Marketplace version, the GitHub star count and the WCAG AA claim, and switched to `for-the-badge` so it holds its own under a 1280px banner. The colors stay on the theme's own ramp: accent, numbers, strings, the mint the theme reserves for "passes", and types
 - README badges now use the theme's own palette instead of shields.io's named colors. The accent, numbers, strings and types pinks carry the four badges, on the same pure black label the theme uses as its background, so the row at the top of the page reads as part of the theme rather than as generic defaults
 
 ### Fixed
