@@ -33,6 +33,12 @@ const FROZEN_THEMES = [
     sha256: 'b905c696c7a8f4d5cf47bf243ffa1b0d262313723eceac8e701815124eebdca4',
     reason:
       'the corrected 0.0.1 palette snapshot — bringing it up to AA would erase the look it preserves',
+    // Pairs this theme is known to fail: the line number, an inactive tab, a
+    // keyword inside a selection, and comments on three editor surfaces. The
+    // file is hash-pinned, so the number moves only when check-contrast.js
+    // changes — which is exactly when it should be looked at again. Keys the
+    // theme leaves to VS Code's defaults are not counted here.
+    expectedFailures: 6,
   },
 ];
 
