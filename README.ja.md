@@ -236,6 +236,18 @@ code .
 
 角括弧の中はテーマ名なので、`[Neon Pink Dark]` は Soft と Dimmed には効きません。3 つすべてに効かせるには `"[Neon Pink Dark][Neon Pink Dark Soft][Neon Pink Dimmed]"` のように並べて書きます。
 
+## ⭐ Star をお願いします
+
+<div align="center">
+
+<a href="https://github.com/kpab/vscode-neon-pink-theme"><img alt="Neon Pink Dark に GitHub で Star をつける" src="https://img.shields.io/github/stars/kpab/vscode-neon-pink-theme?style=social"></a>
+
+</div>
+
+テーマにはテレメトリがなく、レビューもそう集まりません。つまり Star の数が、次に見た人が「ピンクのテーマはネタなのか、8 時間コードを読める道具なのか」を判断するときの、ほぼ唯一の手がかりになります。このテーマが画面に居座る価値を示せたなら、上のボタン（GitHub のリポジトリページ右上にあるものと同じです）をひと押しお願いします。
+
+まだそこまでではない場合は、[Issue](https://github.com/kpab/vscode-neon-pink-theme/issues) のほうが役に立ちます。自分の言語で読みにくい色、テーマが拾えていない箇所、次に欲しいバリアント — どれでも歓迎です。
+
 ## 🤝 コントリビューション
 
 Issue や Pull Request を歓迎します！詳しい手順は [CONTRIBUTING.md](CONTRIBUTING.md)（英語）にあります。要点だけ書くと:
@@ -266,4 +278,13 @@ MIT License - 詳細は [LICENSE](LICENSE) をご覧ください。
 
 ---
 
-**Enjoy coding in the neon! 💖✨**
+<div align="center">
+
+<a href="https://github.com/kpab/vscode-neon-pink-theme"><img alt="Neon Pink Dark に GitHub で Star をつける" src="https://img.shields.io/github/stars/kpab/vscode-neon-pink-theme?style=social"></a>
+
+<p>
+  <b>Enjoy coding in the neon 💖✨</b><br>
+  <sub>Star、共有、あるいは直してほしい点の報告 — どれもこのテーマを必要な人に届けてくれます。</sub>
+</p>
+
+</div>

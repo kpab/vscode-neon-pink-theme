@@ -263,6 +263,18 @@ Tracked as [GitHub milestones](https://github.com/kpab/vscode-neon-pink-theme/mi
 
 A light variant is not on this list yet. See the note at the end of [Variants](#️-variants) for why it is a separate design problem rather than a fourth intensity.
 
+## ⭐ Star the Repository
+
+<div align="center">
+
+<a href="https://github.com/kpab/vscode-neon-pink-theme"><img alt="Star Neon Pink Dark on GitHub" src="https://img.shields.io/github/stars/kpab/vscode-neon-pink-theme?style=social"></a>
+
+</div>
+
+A theme ships with no telemetry and collects reviews slowly, so the star count is most of what the next person has to go on when they are deciding whether a pink theme is a gimmick or something they can read code in for eight hours. If this one earned a place on your screen, the button above is one click — the same one GitHub puts at the top of the repository page.
+
+If it has not earned that yet, [Issues](https://github.com/kpab/vscode-neon-pink-theme/issues) is the more useful click: the color that reads wrong in your language, the surface the theme misses, the variant you want next.
+
 ## 🤝 Contributing
 
 Contributions are welcome! Here's how you can help:
@@ -316,6 +328,13 @@ MIT License - see [LICENSE](LICENSE) file for details.
 
 ---
 
-**If you enjoy this theme, please ⭐ star the repository and share it with other developers!**
+<div align="center">
 
-**Enjoy coding in the neon! 💖✨**
+<a href="https://github.com/kpab/vscode-neon-pink-theme"><img alt="Star Neon Pink Dark on GitHub" src="https://img.shields.io/github/stars/kpab/vscode-neon-pink-theme?style=social"></a>
+
+<p>
+  <b>Enjoy coding in the neon 💖✨</b><br>
+  <sub>Star it, share it, or tell me what to fix — all three help the theme find the people who want it.</sub>
+</p>
+
+</div>
