@@ -8,6 +8,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
+- A generated banner at the top of both READMEs, and a GitHub social preview card. `scripts/generate-banner.js` (`npm run banner`) draws both from one composition and reads every color out of the base theme, so the artwork cannot drift from the palette. The two places a theme is judged before anything else — the top of the README and the card GitHub unfurls when the repository is linked — were showing a heading and a gray placeholder; the screenshots could not fill either, since they show the theme at VS Code's own scale, which is unreadable on a card
 - A Marketplace installs badge at the top of both READMEs, linking to the listing. It comes from `vsmarketplacebadges.dev` rather than shields.io, whose `visual-studio-marketplace/*` badges are retired and now render the words "retired badge" where the number should be
 
 ### Changed
