@@ -165,7 +165,7 @@ function buildSvg(theme) {
   <ellipse cx="${WIDTH / 2}" cy="${HEIGHT / 2}" rx="720" ry="300" fill="url(#glow)"/>
 
   <text x="${PAD}" y="46" font-family="${SANS}" font-size="15" letter-spacing="5" fill="${fg}" opacity="0.9">COLOR PALETTE</text>
-  <text x="${WIDTH - PAD}" y="46" font-family="${SANS}" font-size="13" fill="${muted}" text-anchor="end">measured against ${bg} — nothing here is below 4.5:1</text>
+  <text x="${WIDTH - PAD}" y="46" font-family="${SANS}" font-size="13" fill="${muted}" text-anchor="end">text colors measured against ${bg} — none below 4.5:1</text>
   <rect x="${PAD}" y="60" width="${WIDTH - PAD * 2}" height="1" fill="url(#rule)"/>
 ${cells}
 </svg>`;
