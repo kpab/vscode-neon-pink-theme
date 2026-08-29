@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-08-30
+
 ### Added
 - The **Neon Pink Dark Classic** theme: the corrected 0.0.1 palette under its own name. It preserves the original look but omits the old `contrastBorder`, whose ignored alpha would restore the opaque pink workbench border removed as a bug in 0.0.2. Its 24 workbench colors leave everything else to VS Code's stock Dark+ — the bright blue Commit button included. It is a frozen, hash-checked snapshot rather than a fourth intensity; contrast is still audited, and the six pairs that sit below AA — the line number, an inactive tab, a keyword inside a selection, and comments on three surfaces — are reported without failing the build. The keys it leaves to VS Code's defaults are counted apart from those rather than as failures of its own ([#24])
 - A generated banner at the top of both READMEs, and a GitHub social preview card. `scripts/generate-banner.js` (`npm run banner`) draws both from one composition and reads every color out of the base theme, so the artwork cannot drift from the palette. The two places a theme is judged before anything else — the top of the README and the card GitHub unfurls when the repository is linked — were showing a heading and a gray placeholder; the screenshots could not fill either, since they show the theme at VS Code's own scale, which is unreadable on a card
@@ -215,7 +217,8 @@ The two things the listing was missing. v0.3.0 finished the colors and v0.4.0 fi
 - Types: Light pink (#FF9AD6)
 - Numbers: Vivid pink (#FF55C3)
 
-[Unreleased]: https://github.com/kpab/vscode-neon-pink-theme/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/kpab/vscode-neon-pink-theme/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v1.0.0...v1.1.0
 [1.0.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.4.0...v1.0.0
 [0.4.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/kpab/vscode-neon-pink-theme/compare/v0.2.0...v0.3.0
