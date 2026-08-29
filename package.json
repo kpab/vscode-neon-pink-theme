@@ -71,6 +71,7 @@
     "build": "node scripts/build-themes.js",
     "icon": "node scripts/generate-icon.js",
     "banner": "node scripts/generate-banner.js",
+    "palette": "node scripts/generate-palette.js",
     "validate": "node scripts/validate-themes.js",
     "extract-color-keys": "node scripts/extract-color-keys.js",
     "test": "node scripts/validate-themes.js && node scripts/build-themes.js --check && node scripts/check-contrast.js"

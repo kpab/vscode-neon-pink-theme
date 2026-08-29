@@ -127,6 +127,8 @@ code .
 
 Every value below is opaque, so the code is what the color measures as — no alpha is composited away.
 
+![The ten colors of Neon Pink Dark, each with its hex code and measured contrast ratio](https://raw.githubusercontent.com/kpab/vscode-neon-pink-theme/main/images/palette.png)
+
 | Element | Color Code | On black | Description |
 |---------|-----------|---------|-------------|
 | 🎯 Primary Accent | `#FF2DBE` | 6.4:1 | Neon pink (keywords, cursor, badges) |
@@ -136,7 +138,7 @@ Every value below is opaque, so the code is what the color measures as — no al
 | 🔢 Numbers | `#FF55C3` | 7.3:1 | Vivid pink for numeric values |
 | 💬 Comments | `#C77AAE` | 6.8:1 | Muted pink, italicized |
 | 🔧 Functions | `#FF5EC4` | 7.7:1 | Medium pink for function names |
-| 📦 Types | `#FF9AD6` | 10.9:1 | Light pink for type definitions |
+| 📦 Types | `#FF9AD6` | 10.8:1 | Light pink for type definitions |
 | ⚙️ Operators | `#FFBEE8` | 13.8:1 | Pale pink for punctuation |
 | #️⃣ Line numbers | `#B3689B` | 5.4:1 | Dim pink, one step below comments |
 
