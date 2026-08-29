@@ -19,10 +19,10 @@ Transform your VS Code into a futuristic cyberpunk environment with pure black b
 - 💖 **Neon Pink Accents** - `#FF2DBE` as the primary color across the editor and workbench
 - 🌃 **Cyberpunk / Future Neon** - Inspired by neon signs in nighttime cityscapes
 - 🎯 **Layered Highlighting** - 55 TextMate rules plus semantic tokens: generic scopes that apply to every language, with dedicated rules for Markdown, HTML, CSS, JSON and YAML on top
-- 🎚️ **Three Variants** - The original plus **Soft** and **Dimmed**, for OLED panels, bright rooms and long sessions. One install, [three themes](#-variants)
+- 🎚️ **Three Variants** - The original plus **Soft** and **Dimmed**, for OLED panels, bright rooms and long sessions. One install, [three themes](#️-variants)
 - 🔧 **Customizable** - Easy to override colors through VS Code settings
 
-> **Every surface is themed as of v0.3.0** — workbench UI, syntax, diagnostics, the diff editor and Git decorations — and every text color meets WCAG AA against the background it actually renders on. **v0.4.0 adds the Soft and Dimmed variants**, which hold that same guarantee. **v1.0.0 is the first release where nothing on that list is outstanding**: the theme is complete, measured, screenshotted, and every check that keeps it that way runs in CI. See [Current Scope](#-current-scope) for what is covered, and the [Roadmap](#-roadmap) for what's next.
+> **Every surface is themed as of v0.3.0** — workbench UI, syntax, diagnostics, the diff editor and Git decorations — and every text color meets WCAG AA against the background it actually renders on. **v0.4.0 adds the Soft and Dimmed variants**, which hold that same guarantee. **v1.0.0 is the first release where nothing on that list is outstanding**: the theme is complete, measured, screenshotted, and every check that keeps it that way runs in CI. See [Current Scope](#-current-scope) for what is covered, and the [Roadmap](#️-roadmap) for what's next.
 
 ## 📊 Current Scope
 
@@ -244,7 +244,7 @@ Tracked as [GitHub milestones](https://github.com/kpab/vscode-neon-pink-theme/mi
 | [v0.4.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/5) | Soft and Dimmed variants for OLED and long sessions |
 | [v1.0.0](https://github.com/kpab/vscode-neon-pink-theme/milestone/6) | Screenshots, CI and release automation |
 
-A light variant is not on this list yet. See the note at the end of [Variants](#-variants) for why it is a separate design problem rather than a fourth intensity.
+A light variant is not on this list yet. See the note at the end of [Variants](#️-variants) for why it is a separate design problem rather than a fourth intensity.
 
 ## 🤝 Contributing
 
