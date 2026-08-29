@@ -255,7 +255,7 @@ The fifth principle is a deliberate exception to the fourth, added in v0.3.0 alo
 
 Everything the editor says about your own code stays pink. Everything the editor says *about* the code — a diagnostic, a diff, a Git status — is allowed one of these five.
 
-Where these conflict, readability wins. Comments used to be a semi-transparent pink that looked right and measured 3.6:1; they are now a solid `#C77AAE` at 6.8:1. The rule the theme follows from v0.3.0 on: nothing ships below 4.5:1 on the surface it actually renders on, and `npm test` is what enforces it.
+Where these conflict, readability wins. Comments used to be a semi-transparent pink that looked right and measured 3.6:1; they are now a solid `#C77AAE` at 6.8:1. The rule the theme follows from v0.3.0 on: nothing ships below 4.5:1 on the surface it actually renders on, and `npm test` is what enforces it. Classic is the one theme outside that rule, because it is a snapshot of the theme from before the rule existed — it is measured and labelled rather than corrected.
 
 ## 🗺️ Roadmap
 
